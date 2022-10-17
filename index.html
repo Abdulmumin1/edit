@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merch Designer</title>
+    <script defer type="module" src="/main.js"></script>
+    <style id="u-style"></style>
+  </head>
+  <body class="h-screen">
+    <div class="h-full flex flex-col lg:flex-row bg-white">
+      <div
+        class="lg:w-3/4 flex-shrink-0 p-10 flex justify-center items-center bg-blue-800"
+        id="playground"
+      >
+        <div class="h-full w-full" id="outer-box">
+          <div
+            class="w-full bg-white rounded-3xl p-10 shadow-2xl h-full"
+            id="box"
+          >
+            <img src="./assets/gg.png" class="mx-auto h-full" id="image" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div
+        id="controls"
+        class="h-full bg-slate-100 overflow-scroll md:w-1/4 sm:flex-1"
+      >
+        <div class="bg-white p-9 m-6 shadow-2xl h-fit rounded-3xl">
+          <div class="flex space-y-4 flex-col">
+            <div id="move"></div>
+            <input
+              class="my-2 text-dark p-3 rounded-xl shadow-md bg-slate-100 cursor-pointer"
+              type="button"
+              value="render"
+              id="download"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Download Area -->
+    <!-- Hidden until render button is pressed -->
+    <div class="bg-gray-50 p-10 hidden" id="download-area">
+      <div
+        class="shadow-lg h-1/2 shadow-white rounded-3xl flex flex-col items-center m-5 p-7 space-y-4"
+        id="download-card"
+      >
+        <button
+          class="text-white p-3 w-fit rounded-full shadow-lg bg-gray-800 cursor-pointer"
+          onclick="document.getElementById('download-area').classList.add('hidden')"
+        >
+          X
+        </button>
+        <div class="h-fit mx-auto" id="download-image-box"></div>
+        <button
+          class="text-white p-3 w-fit rounded-xl shadow-lg bg-gray-800 cursor-pointer"
+          id="download-btn"
+        >
+          <a id="download-link">Download</a>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
