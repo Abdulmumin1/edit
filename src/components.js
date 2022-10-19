@@ -10,9 +10,48 @@ const dropZone = `
     </label>
 </div> 
 `;
+
+const cropImageWidgets = `
+<div flex flex-col text-black>
+<p class='py-2'>Crop</p>
+<label>
+    vetical:
+    <input
+      type="range"
+      id='crop-top'
+      class="rounded-3x w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+    />
+  </label>
+  <label>
+    horizontal:
+    <input
+      type="range"
+      id='crop-top'
+      class="rounded-3x w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+    />
+  </label>
+  </div>
+`;
+const imageSizeWidgets = `
+<div class='flex justify-between py-3'>
+<button class='bg-white shadow p-2 rounded border-dashed'>16:9</button>
+<button class='bg-white shadow p-2 rounded border-dashed'>4:3</button>
+<button class='bg-white shadow p-2 rounded border-dashed'>3:2</button>
+<button class='bg-white shadow p-2 rounded border-dashed'>square</button>
+</div>
+`;
+
 export const labelControls = () => {
   return `
   <div class='flex flex-col text-black' id="labelControls">
+   <label
+        >Background:
+        <input
+          type="color"
+          id='background'
+          class="rounded-3x w-full bg-slate-800 range shadow-inner rounded-3xl cursor-pointer"
+        />
+      </label>
   <label>
       Inset:
       <input
@@ -33,7 +72,10 @@ export const labelControls = () => {
       </label>
       <label
      
+    
     ${dropZone}
+
+    ${imageSizeWidgets}
     </div>
   `;
 };

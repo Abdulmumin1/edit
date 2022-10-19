@@ -4,32 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merch Designer</title>
+    <title>Edit</title>
     <script defer type="module" src="/main.js"></script>
     <style id="u-style"></style>
   </head>
   <body class="h-screen">
     <div class="h-full flex flex-col lg:flex-row bg-white">
       <div
-        class="lg:w-3/4 flex-shrink-0 p-10 flex justify-center items-center bg-blue-800"
+        class="lg:w-3/4 flex-shrink-0 flex justify-center items-center"
         id="playground"
       >
-        <div class="h-full w-full" id="outer-box">
+        <div
+          class="w-full flex items-center justify-center bg-blue-600 p-24"
+          id="outer-box"
+        >
+          <!-- style="height: calc(100vh * 2 / 3)" -->
+
+          <!-- <div class="h-full w-full flex items-center justify-center"> -->
           <div
-            class="w-full bg-white rounded-3xl p-10 shadow-2xl h-full"
+            class="w-fit bg-white rounded-3xl p-10 shadow-2xl h-full"
             id="box"
           >
-            <img src="./assets/gg.png" class="mx-auto h-full" id="image" />
+            <img src="./assets/exc.png" class="mx-auto h-full" id="image" />
           </div>
+          <!-- </div> -->
         </div>
       </div>
 
       <!-- Controls -->
       <div
         id="controls"
-        class="h-full bg-slate-100 overflow-scroll md:w-1/4 sm:flex-1"
+        class="h-full bg-slate-100 overflow-scroll lg:w-1/4 md:flex-1 md:flex-shrink-0"
       >
-        <div class="bg-white p-9 m-6 shadow-2xl h-fit rounded-3xl">
+        <div class="bg-white p-9 lg:m-6 lg:shadow-2xl h-fit lg:rounded-3xl">
           <div class="flex space-y-4 flex-col">
             <div id="move"></div>
             <input
