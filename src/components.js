@@ -44,7 +44,7 @@ const imageSizeWidgets = `
 const createWidgets = `
 <div class="flex items-center justify-center space-y-2 flex-col">
   <div class="inline-flex bg-gray-100  w-full p-1" role="group">
-    <button class='flex-1 focus:shadow-md p-1 focus:bg-white rounded-md'>Image</button>
+    <button class='flex-1 focus:shadow-md p-1 focus:bg-white rounded-md' id='createimage'>Image</button>
     <button class='flex-1 focus:shadow-md p-1 focus:bg-white rounded-md' id='createtext'>Text</button>
   </div>
   <label class='hidden' id='text-font'>

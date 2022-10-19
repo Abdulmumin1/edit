@@ -15,7 +15,8 @@ import {
   changePadding,
   changeMargin,
   changeBackground,
-  createText,
+  textTab,
+  imageTab,
   changeFont,
 } from "./src/eventFunctions";
 import { labelControls } from "./src/components";
@@ -36,7 +37,8 @@ const labelEventListeners = () => {
   let imageBackground = select("#background");
   let selectImage = select("#add-image");
   let image = select("#image");
-  let textButton = select("#createtext");
+  let textTabButton = select("#createtext");
+  let imageTabButton = select("#createimage");
   let textFontSlider = select("#text-font");
   let dropZone = select("#dropzone");
   let text = select("#text");
@@ -46,8 +48,11 @@ const labelEventListeners = () => {
   inputListener(imageBackground, (e) => changeBackground(e, outerbox));
   inputListener(textFontSlider, (e) => changeFont(e, text));
   addImageEvent(selectImage, image);
-  clickListener(textButton, (e) =>
-    createText(e, textFontSlider, dropZone, image, text)
+  clickListener(textTabButton, (e) =>
+    textTab(e, textFontSlider, dropZone, image, text)
+  );
+  clickListener(imageTabButton, (e) =>
+    imageTab(e, textFontSlider, dropZone, image, text)
   );
 };
 
