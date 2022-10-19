@@ -20,6 +20,10 @@ export const inputListener = (triggerer, func) => {
   triggerer.addEventListener("input", func, false);
 };
 
+export const clickListener = (triggerer, func) => {
+  triggerer.addEventListener("click", func, false);
+};
+
 export const dragEnterListener = (triggerer, reactor) => {
   const accept = (e) => {
     e.preventDefault();

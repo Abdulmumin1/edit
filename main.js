@@ -5,13 +5,18 @@ import {
   inputListener,
   addImageEvent,
   dragEnterListener,
+  clickListener,
 } from "./src/events";
+
 import { getImage } from "./src/download";
+
 import {
   downloadImageToStorage,
   changePadding,
   changeMargin,
   changeBackground,
+  createText,
+  changeFont,
 } from "./src/eventFunctions";
 import { labelControls } from "./src/components";
 
@@ -26,15 +31,29 @@ const labelEventListeners = () => {
   // box event listeners
   let box = select("#box");
   let outerbox = select("#outer-box");
-  inputListener(select("#inset"), (e) => changePadding(e, box));
-  inputListener(select("#margin"), (e) => changeMargin(e, outerbox));
-  inputListener(select("#background"), (e) => changeBackground(e, outerbox));
-  addImageEvent(select("#add-image"), select("#image"));
+  let insetSlider = select("#inset");
+  let marginSlider = select("#margin");
+  let imageBackground = select("#background");
+  let selectImage = select("#add-image");
+  let image = select("#image");
+  let textButton = select("#createtext");
+  let textFontSlider = select("#text-font");
+  let dropZone = select("#dropzone");
+  let text = select("#text");
+
+  inputListener(insetSlider, (e) => changePadding(e, box));
+  inputListener(marginSlider, (e) => changeMargin(e, outerbox));
+  inputListener(imageBackground, (e) => changeBackground(e, outerbox));
+  inputListener(textFontSlider, (e) => changeFont(e, text));
+  addImageEvent(selectImage, image);
+  clickListener(textButton, (e) =>
+    createText(e, textFontSlider, dropZone, image, text)
+  );
 };
 
 const startupEvents = () => {
   labelEventListeners();
-  dragEnterListener(select("#dropzone"), select("#image"));
+  // dragEnterListener(select("#dropzone"), select("#image"));
   renderEvent(select("#download"), () =>
     getImage(
       select("#outer-box"),
