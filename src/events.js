@@ -5,7 +5,7 @@ export const addImageEvent = (triggerer, reactor) => {
     image.src = URL.createObjectURL(e.target.files[0]);
     reactor.src = image.src;
   };
-  triggerer.addEventListener("click", updateImage, false);
+  triggerer.addEventListener("input", updateImage, false);
 };
 
 export const renderEvent = (triggerer, func) => {
