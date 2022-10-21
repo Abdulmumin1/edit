@@ -44,7 +44,7 @@ const labelEventListeners = () => {
   let text = select("#text");
 
   inputListener(insetSlider, (e) => changePadding(e, box));
-  inputListener(marginSlider, (e) => changeMargin(e, outerbox));
+  inputListener(marginSlider, (e) => changeMargin(e, box));
   inputListener(imageBackground, (e) => changeBackground(e, outerbox));
   inputListener(textFontSlider, (e) => changeFont(e, text));
   addImageEvent(selectImage, image);
@@ -54,6 +54,8 @@ const labelEventListeners = () => {
   clickListener(imageTabButton, (e) =>
     imageTab(e, textFontSlider, dropZone, image, text)
   );
+
+  // imageTabButton.click();
 };
 
 const startupEvents = () => {

@@ -4,7 +4,7 @@ export const changePadding = (e, reactor) => {
   reactor.style.padding = `${e.target.value}px`;
 };
 export const changeMargin = (e, reactor) => {
-  reactor.style.padding = `${e.target.value}px`;
+  reactor.style.width = `${e.target.value}%`;
 };
 
 export const changeFont = (e, reactor) => {

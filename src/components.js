@@ -44,8 +44,8 @@ const imageSizeWidgets = `
 const createWidgets = `
 <div class="flex items-center justify-center space-y-2 flex-col">
   <div class="inline-flex bg-gray-100  w-full p-1" role="group">
-    <button class='flex-1 focus:shadow-md p-1 focus:bg-white rounded-md' id='createimage'>Image</button>
-    <button class='flex-1 focus:shadow-md p-1 focus:bg-white rounded-md' id='createtext'>Text</button>
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createimage'>Image</button>
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createtext'>Text</button>
   </div>
   <label class='hidden' id='text-font'>
       font:
@@ -62,7 +62,8 @@ ${dropZone}
 export const labelControls = () => {
   return `
   <div class='flex flex-col text-black' id="labelControls">
-   <label
+  <div> 
+  <label
         >Background:
         <input
           type="color"
@@ -88,7 +89,7 @@ export const labelControls = () => {
           class="rounded-3x w-full bg-slate-800 range shadow-inner rounded-3xl cursor-pointer"
         />
       </label>
-      <label
+      </div>
      
     ${createWidgets}
     ${imageSizeWidgets}
