@@ -11,6 +11,48 @@ const dropZone = `
 </div> 
 `;
 
+const backgroundColorWidgets = `
+<div class='space-y-3'>
+ <div class="inline-flex bg-gray-100  w-full p-1" role="group">
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='solid'>Solid</button>
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='gradient'>Gradient</button>
+  </div>
+  
+  <div id='solid-tab'>
+    <label>Background:
+        <input
+          type="color"
+          id='background'
+          class="w-full rounded-2xl overflow-hidden cursor-pointer"
+        />
+      </label>
+    </div>
+
+    <div id='gradient-tab' class="hidden">
+      
+      <div class="flex space-x-6">
+        <input
+          type="color"
+          id="gradient-one"
+          class="w-full rounded-2xl overflow-hidden cursor-pointer"
+        />
+
+        <input
+          type="color"
+          id="gradient-two"
+          class="w-full rounded-2xl overflow-hidden cursor-pointer"
+        />
+      </div>
+      <label for='gradient-slider' >angle</label>
+        <input
+          type="range"
+          id='gradient-slider'
+          max="360"
+          class="w-full  cursor-pointer"
+        />
+    </div>
+</div>
+`;
 const cropImageWidgets = `
 <div flex flex-col text-black>
 <p class='py-2'>Crop</p>
@@ -19,7 +61,7 @@ const cropImageWidgets = `
     <input
       type="range"
       id='crop-top'
-      class="rounded-3x w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+      class=" w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
     />
   </label>
   <label>
@@ -27,7 +69,7 @@ const cropImageWidgets = `
     <input
       type="range"
       id='crop-top'
-      class="rounded-3x w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+      class="w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
     />
   </label>
   </div>
@@ -47,12 +89,13 @@ const createWidgets = `
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createimage'>Image</button>
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createtext'>Text</button>
   </div>
-  <label class='hidden' id='text-font'>
+  <label class='hidden w-full' id='text-font'>
       font:
       <input
         type="range"
         id="font-slider"
-        class="rounded-3x w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+        max="60"
+        class="w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
       />
   </label>
 ${dropZone}
@@ -63,20 +106,13 @@ export const labelControls = () => {
   return `
   <div class='flex flex-col text-black' id="labelControls">
   <div> 
-  <label
-        >Background:
-        <input
-          type="color"
-          id='background'
-          class="rounded-3x w-full bg-slate-800 range shadow-inner rounded-3xl cursor-pointer"
-        />
-      </label>
+  ${backgroundColorWidgets}
   <label>
       Inset:
       <input
         type="range"
         id="inset"
-        class="rounded-3x w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+        class="w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
       />
     </label>
     
@@ -86,13 +122,11 @@ export const labelControls = () => {
           type="range"
           id="margin"
           
-          class="rounded-3x w-full bg-slate-800 range shadow-inner rounded-3xl cursor-pointer"
+          class="w-full bg-slate-800 range shadow-inner rounded-3xl cursor-pointer"
         />
       </label>
       </div>
-     
     ${createWidgets}
-    ${imageSizeWidgets}
     </div>
   `;
 };
