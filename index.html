@@ -10,13 +10,10 @@
   </head>
   <body class="h-screen">
     <div class="h-full flex flex-col lg:flex-row bg-white">
-      <div
-        class="lg:w-3/4 flex-shrink-0 flex justify-center items-center"
-        id="playground"
-      >
-        <div class="w-full h-full flex items-center justify-center">
+      <div class="flex justify-center items-center lg:w-3/4" id="playground">
+        <div class="w-full h-full flex items-center justify-center p-3 lg:p-6">
           <div
-            class="w-full flex items-center justify-center bg-gradient-to-bl from-indigo-500 via-purple-500 to-pink-500 p-24"
+            class="w-full flex items-center justify-center bg-gradient-to-bl from-indigo-500 via-purple-500 to-pink-500 p-10 lg:p-24 h-full"
             id="outer-box"
           >
             <!-- <div class="h-full w-full flex items-center justify-center"> -->
@@ -24,7 +21,7 @@
               class="w-fit bg-white rounded-3xl p-10 shadow-2xl h-fit"
               id="box"
             >
-              <p class="hidden" id="text" contenteditable="true">
+              <p class="hidden font-semibold" id="text" contenteditable="true">
                 Your text Here
               </p>
               <img
