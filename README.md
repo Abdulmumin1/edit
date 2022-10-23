@@ -51,13 +51,13 @@ take and edit beautiful screenshot.
 </ul>
 
 ```bash
-git clone https://github.com/<YOURNAME>/Merch-Designer
+git clone https://github.com/<YOURNAME>/edit
 ```
 
-Navigate to the directory `Merch-Designer`
+Navigate to the directory `edit`
 
 ```bash
-cd Merch-Designer
+cd edit
 ```
 
 Install dependencies

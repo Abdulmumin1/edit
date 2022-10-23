@@ -1,7 +1,7 @@
 import domtoimage from "dom-to-image";
 
 var scale = 2;
-export const getImage = (id, downloadArea, downloadImage, downloadLink) => {
+export const getImage = (id, downloadArea, downloadCard, downloadLink) => {
   domtoimage
     .toPng(id, {
       width: id.clientWidth * scale,
@@ -16,15 +16,15 @@ export const getImage = (id, downloadArea, downloadImage, downloadLink) => {
     .then((dataUrl) => {
       let image = new Image();
       image.src = dataUrl;
-      image.classList = ["rounded-2xl"];
+      image.classList = ["rounded-2xl h-full "];
       image.id = "download-image";
-      downloadImage.appendChild(image);
+      downloadCard.insertBefore(image, downloadLink.parentElement);
       downloadArea.classList.remove("hidden");
       window.location.href = "#download-area";
 
       // get link ready for download
 
       downloadLink.href = dataUrl;
-      downloadLink.download = "merch.png";
+      downloadLink.download = "image.png";
     });
 };
