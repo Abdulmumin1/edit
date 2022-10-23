@@ -21,6 +21,7 @@ import {
   showGradientTab,
   showSolidTab,
   createGradientBackground,
+  setAspectRatio,
 } from "./src/eventFunctions";
 import { labelControls } from "./src/components";
 
@@ -55,10 +56,16 @@ const labelEventListeners = () => {
   let gradientTab = select("#gradient-tab");
   let solidTab = select("#solid-tab");
 
-  // gradient background listenters
+  // gradient background widgets
   let gradientColorOne = select("#gradient-one");
   let gradientColorTwo = select("#gradient-two");
   let gradientColorSlider = select("#gradient-slider");
+
+  // image size widgets
+  let sixbynine = select("#sixbynine");
+  let fourbythree = select("#fourbythree");
+  let threebytwo = select("#threebytwo");
+  let square = select("#square");
 
   inputListener(insetSlider, (e) => changePadding(e, box));
   inputListener(marginSlider, (e) => changeMargin(e, box));
@@ -106,6 +113,10 @@ const labelEventListeners = () => {
     )
   );
 
+  [sixbynine, fourbythree, threebytwo, square].forEach((element) => {
+    clickListener(element, (e) => setAspectRatio(e, outerbox));
+  });
+
   // imageTabButton.click();
 
   // outerbox.style.height = `calc(${outerbox.style.width} * 9/16)`;
@@ -118,7 +129,7 @@ const startupEvents = () => {
     getImage(
       select("#outer-box"),
       select("#download-area"),
-      select("#download-image-box"),
+      select("#download-card"),
       select("#download-link")
     )
   );

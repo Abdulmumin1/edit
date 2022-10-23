@@ -49,3 +49,19 @@ export const showSolidTab = (e, gradientTab, solidTab) => {
   gradientTab.classList.add("hidden");
   solidTab.classList.remove("hidden");
 };
+
+//image sizes
+
+export const setAspectRatio = (e, reactor) => {
+  console.log(e.target.innerText);
+  if (e.target.innerText == "16:9") {
+    console.log("this is 3.3kl");
+    reactor.style.aspectRatio = "16/9";
+  } else if (e.target.innerText == "4:3") {
+    reactor.style.aspectRatio = "4/3";
+  } else if (e.target.innerText == "3:2") {
+    reactor.style.aspectRatio = "3/2";
+  } else if (e.target.innerText == "square") {
+    reactor.style.aspectRatio = "2/2";
+  }
+};
