@@ -15,13 +15,14 @@ import {
   changePadding,
   changeMargin,
   changeBackground,
-  textTab,
-  imageTab,
+  showTab,
   changeFont,
-  showGradientTab,
-  showSolidTab,
   createGradientBackground,
   setAspectRatio,
+  setTextAlignLeft,
+  setTextAlignRight,
+  setTextAlignCenter,
+  showCurrentObject,
 } from "./src/eventFunctions";
 import { labelControls } from "./src/components";
 
@@ -49,6 +50,9 @@ const labelEventListeners = () => {
   let dropZone = select("#dropzone");
   let text = select("#text");
 
+  let imageTab = select("#image-tab-items");
+  let textTab = select("#text-tab-items");
+
   // change background tab
   let gradientTabButton = select("#gradient");
   let solidBackgroundTabButton = select("#solid");
@@ -67,23 +71,31 @@ const labelEventListeners = () => {
   let threebytwo = select("#threebytwo");
   let square = select("#square");
 
+  // text align widgets
+  let alignLeft = select("#text-left");
+  let alignCenter = select("#text-center");
+  let alignRight = select("#text-right");
+
   inputListener(insetSlider, (e) => changePadding(e, box));
   inputListener(marginSlider, (e) => changeMargin(e, box));
   inputListener(imageBackground, (e) => changeBackground(e, outerbox));
   inputListener(textFontSlider, (e) => changeFont(e, text));
   addImageEvent(selectImage, image);
-  clickListener(textTabButton, (e) =>
-    textTab(e, textFontSlider, dropZone, image, text)
-  );
-  clickListener(imageTabButton, (e) =>
-    imageTab(e, textFontSlider, dropZone, image, text)
-  );
+
+  clickListener(textTabButton, (e) => {
+    showTab(e, imageTabButton, textTab, imageTab);
+    showCurrentObject(text, image);
+  });
+  clickListener(imageTabButton, (e) => {
+    showTab(e, textTabButton, imageTab, textTab);
+    showCurrentObject(image, text);
+  });
 
   clickListener(gradientTabButton, (e) =>
-    showGradientTab(e, gradientTab, solidTab)
+    showTab(e, solidBackgroundTabButton, gradientTab, solidTab)
   );
   clickListener(solidBackgroundTabButton, (e) =>
-    showSolidTab(e, gradientTab, solidTab)
+    showTab(e, gradientTabButton, solidTab, gradientTab)
   );
 
   inputListener(gradientColorOne, (e) =>
@@ -117,6 +129,9 @@ const labelEventListeners = () => {
     clickListener(element, (e) => setAspectRatio(e, outerbox));
   });
 
+  clickListener(alignLeft, (e) => setTextAlignLeft(text));
+  clickListener(alignCenter, (e) => setTextAlignCenter(text));
+  clickListener(alignRight, (e) => setTextAlignRight(text));
   // imageTabButton.click();
 
   // outerbox.style.height = `calc(${outerbox.style.width} * 9/16)`;

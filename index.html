@@ -14,11 +14,9 @@
         class="flex justify-center items-center lg:w-3/4 flex-1 flex-shrink-0 lg:flex-none"
         id="playground"
       >
-        <div
-          class="w-full h-full flex items-center justify-center p-3 lg:p-6 overflow-hidden"
-        >
+        <div class="w-full h-full flex items-center justify-center p-3 lg:p-6">
           <div
-            class="w-full flex items-center justify-center bg-gradient-to-bl from-indigo-500 via-purple-500 to-pink-500"
+            class="h-full w-full lg:w-max flex items-center justify-center bg-gradient-to-bl from-indigo-500 via-purple-500 to-pink-500"
             id="outer-box"
             style="aspect-ratio: 16/9"
           >
@@ -27,7 +25,11 @@
               class="w-fit bg-white rounded-3xl p-10 shadow-2xl h-fit"
               id="box"
             >
-              <p class="hidden font-semibold" id="text" contenteditable="true">
+              <p
+                class="hidden font-semibold rounded-lg leading-tight"
+                id="text"
+                contenteditable="true"
+              >
                 Your text Here
               </p>
               <img
