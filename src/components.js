@@ -13,7 +13,7 @@ const dropZone = `
 
 const backgroundColorWidgets = `
 <div class='space-y-3'>
- <div class="inline-flex bg-gray-100  w-full p-1" role="group">
+ <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='solid'>Solid</button>
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='gradient'>Gradient</button>
   </div>
@@ -75,7 +75,7 @@ const cropImageWidgets = `
   </div>
 `;
 const imageSizeWidgets = `
-<div class='flex justify-between py-3'>
+<div class='flex justify-between md:justify-around py-3'>
 <button class='bg-white shadow p-2 rounded border-dashed' id='sixbynine'>16:9</button>
 <button class='bg-white shadow p-2 rounded border-dashed' id='fourbythree'>4:3</button>
 <button class='bg-white shadow p-2 rounded border-dashed' id='threebytwo'>3:2</button>
@@ -83,22 +83,37 @@ const imageSizeWidgets = `
 </div>
 `;
 
+let textAlignWidgets = `
+  <div class='flex justify-between md:justify-around py-3'>
+    <button class='bg-white shadow p-2 rounded border-dashed' id='text-left'>left</button>
+    <button class='bg-white shadow p-2 rounded border-dashed' id='text-center'>center</button>
+    <button class='bg-white shadow p-2 rounded border-dashed' id='text-right'>right</button>
+  </div>
+`;
+
 const createWidgets = `
 <div class="flex items-center justify-center space-y-2 flex-col">
-  <div class="inline-flex bg-gray-100  w-full p-1" role="group">
+  <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createimage'>Image</button>
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createtext'>Text</button>
   </div>
-  <label class='hidden w-full' id='text-font'>
-      font:
-      <input
-        type="range"
-        id="font-slider"
-        max="60"
-        class="w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
-      />
-  </label>
-${dropZone}
+
+  <div class='w-full hidden' id='text-tab-items'>
+    <label class='w-full' id='text-font'>
+        font:
+        <input
+          type="range"
+          id="font-slider"
+          max="60"
+          class="w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+        />
+    </label>
+    ${textAlignWidgets}
+  </div>
+
+  <div class='w-full' id='image-tab-items'>
+  ${dropZone}
+  </div>
 </div>
 `;
 

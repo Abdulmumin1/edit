@@ -20,40 +20,42 @@ export const createGradientBackground = (
   colortwo,
   angle
 ) => {
-  console.log("fdaklfdajklfdklasf jkdas f9odsajkfdkslaf djlks");
   reactor.style.background = `linear-gradient(${angle.value}deg, ${colorone.value}, ${colortwo.value})`;
 };
 
-export const textTab = (e, fontslider, dropzone, image, text) => {
-  fontslider.classList.remove("hidden");
-  text.classList.remove("hidden");
+export const showTab = (e = undefined, other = undefined, show, hide) => {
+  e.target.classList.add("bg-white");
+  e.target.classList.add("shadow-md");
 
-  dropzone.classList.add("hidden");
-  image.classList.add("hidden");
+  other.classList.remove("bg-white");
+  other.classList.remove("shadow-md");
+
+  show.classList.remove("hidden");
+  hide.classList.add("hidden");
 };
 
-export const imageTab = (e, fontslider, dropzone, image, text) => {
-  fontslider.classList.add("hidden");
-  text.classList.add("hidden");
-
-  dropzone.classList.remove("hidden");
-  image.classList.remove("hidden");
+export const showCurrentObject = (show, hide) => {
+  show.classList.remove("hidden");
+  hide.classList.add("hidden");
 };
+// export const imageTab = (e, imagetab, texttab) => {
+//   imagetab.classList.remove("hidden");
+//   texttab.classList.add("hidden");
+// };
 
-export const showGradientTab = (e, gradientTab, solidTab) => {
-  gradientTab.classList.remove("hidden");
-  solidTab.classList.add("hidden");
-};
+// export const showGradientTab = (e, gradientTab, solidTab) => {
+//   gradientTab.classList.remove("hidden");
+//   solidTab.classList.add("hidden");
+// };
 
-export const showSolidTab = (e, gradientTab, solidTab) => {
-  gradientTab.classList.add("hidden");
-  solidTab.classList.remove("hidden");
-};
+// export const showSolidTab = (e, gradientTab, solidTab) => {
+//   gradientTab.classList.add("hidden");
+//   solidTab.classList.remove("hidden");
+// };
 
 //image sizes
 
 export const setAspectRatio = (e, reactor) => {
-  console.log(e.target.innerText);
   if (e.target.innerText == "16:9") {
     console.log("this is 3.3kl");
     reactor.style.aspectRatio = "16/9";
@@ -64,4 +66,14 @@ export const setAspectRatio = (e, reactor) => {
   } else if (e.target.innerText == "square") {
     reactor.style.aspectRatio = "2/2";
   }
+};
+
+export const setTextAlignLeft = (reactor) => {
+  reactor.style.textAlign = "left";
+};
+export const setTextAlignCenter = (reactor) => {
+  reactor.style.textAlign = "center";
+};
+export const setTextAlignRight = (reactor) => {
+  reactor.style.textAlign = "right";
 };
