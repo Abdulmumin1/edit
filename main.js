@@ -23,6 +23,10 @@ import {
   setTextAlignRight,
   setTextAlignCenter,
   showCurrentObject,
+  setBoxWhite,
+  setBoxGray,
+  setBoxBlack,
+  setCustomBoxColor,
 } from "./src/eventFunctions";
 import { labelControls } from "./src/components";
 
@@ -75,6 +79,12 @@ const labelEventListeners = () => {
   let alignLeft = select("#text-left");
   let alignCenter = select("#text-center");
   let alignRight = select("#text-right");
+
+  // text align widgets
+  let boxWhite = select("#box-white");
+  let boxGray = select("#box-gray");
+  let boxBlack = select("#box-black");
+  let customBoxColor = select("#custom-box-color");
 
   inputListener(insetSlider, (e) => changePadding(e, box));
   inputListener(marginSlider, (e) => changeMargin(e, box));
@@ -132,7 +142,13 @@ const labelEventListeners = () => {
   clickListener(alignLeft, (e) => setTextAlignLeft(text));
   clickListener(alignCenter, (e) => setTextAlignCenter(text));
   clickListener(alignRight, (e) => setTextAlignRight(text));
-  // imageTabButton.click();
+
+  clickListener(boxWhite, (e) => setBoxWhite(box, text));
+  clickListener(boxGray, (e) => setBoxGray(box, text));
+  clickListener(boxBlack, (e) => setBoxBlack(box, text));
+  inputListener(customBoxColor, (e) => setCustomBoxColor(e, box));
+  gradientTabButton.click();
+  imageTabButton.click();
 
   // outerbox.style.height = `calc(${outerbox.style.width} * 9/16)`;
 };
