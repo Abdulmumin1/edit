@@ -28,14 +28,14 @@ import {
   setBoxBlack,
   setCustomBoxColor,
 } from "./src/eventFunctions";
-import { labelControls } from "./src/components";
+import { controlWidgets } from "./src/controls";
 
 const select = (e) => {
   return document.querySelector(e);
 };
 
 // add controls to screen
-select("#move").innerHTML = labelControls();
+select("#move").innerHTML = controlWidgets();
 
 const labelEventListeners = () => {
   // box event listeners
@@ -147,7 +147,7 @@ const labelEventListeners = () => {
   clickListener(boxGray, (e) => setBoxGray(box, text));
   clickListener(boxBlack, (e) => setBoxBlack(box, text));
   inputListener(customBoxColor, (e) => setCustomBoxColor(e, box));
-  gradientTabButton.click();
+  solidBackgroundTabButton.click();
   imageTabButton.click();
 
   // outerbox.style.height = `calc(${outerbox.style.width} * 9/16)`;

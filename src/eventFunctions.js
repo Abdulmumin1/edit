@@ -84,7 +84,6 @@ export const setBoxWhite = (reactor, text) => {
   text.style.color = "black";
 };
 export const setBoxGray = (reactor, text) => {
-  console.log("gray");
   reactor.style.backgroundColor = "rgb(31,41,55)";
   text.style.color = "white";
 };
