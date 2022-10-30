@@ -77,3 +77,22 @@ export const setTextAlignCenter = (reactor) => {
 export const setTextAlignRight = (reactor) => {
   reactor.style.textAlign = "right";
 };
+
+export const setBoxWhite = (reactor, text) => {
+  console.log("rejkfdkls");
+  reactor.style.backgroundColor = "white";
+  text.style.color = "black";
+};
+export const setBoxGray = (reactor, text) => {
+  console.log("gray");
+  reactor.style.backgroundColor = "gray";
+  text.style.color = "white";
+};
+export const setBoxBlack = (reactor, text) => {
+  reactor.style.backgroundColor = "black";
+  text.style.color = "white";
+};
+
+export const setCustomBoxColor = (e, reactor) => {
+  reactor.style.background = e.target.value;
+};
