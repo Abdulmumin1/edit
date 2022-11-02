@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .strong-shadow{
+        box-shadow: rgb(33, 33, 33) 1px 1px 10px 1px;
+    }
+
+    .custom-background-1{
+        background: rgb(2,0,36);
+        background: linear-gradient(30deg, rgb(44, 33, 253) 0%, rgb(155, 255, 84) 35%,  rgba(65,164,222,1) 76%, rgba(209,0,255,1) 92%);
+
+    }
+    .custom-background-2{
+        background: rgb(63,94,251);
+        background: linear-gradient(190deg, rgba(63,94,251,1) 0%,  rgba(166,191,199,1) 64%, rgba(255,61,113,1) 80%, rgba(254,8,58,1) 97%); 
+    }
+    .custom-background-3{
+          background: rgb(139,247,194);
+          background: linear-gradient(63deg, rgba(139,247,194,1) 24%, rgba(232,63,190,1) 51%, rgba(232,67,174,1) 70%, rgba(250,137,47,1) 82%); 
+    }
+}

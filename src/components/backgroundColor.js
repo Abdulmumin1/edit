@@ -1,3 +1,18 @@
+const preBackkgrounds = `
+ <div class='flex justify-between space-x-3 md:justify-around py-3'>
+    <div class='custom-background-1 w-full shadow-xl p-2 rounded cursor-pointer ' id='cbg-1'></div>
+    <div class='custom-background-2 w-full shadow-2xl p-2 rounded cursor-pointer' id='cbg-2'></div>
+    <div class='custom-background-3 w-full shadow-xl p-2 rounded cursor-pointer' id='cbg-3'></div>
+      
+        <input
+          type="color"
+          id='background'
+          class="w-full rounded overflow-hidden cursor-pointer"
+        />
+      
+  </div>
+`;
+
 export const backgroundColorWidgets = `
 <div class='space-y-3'>
  <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
@@ -6,13 +21,7 @@ export const backgroundColorWidgets = `
   </div>
   
   <div id='solid-tab'>
-    <label>Background:
-        <input
-          type="color"
-          id='background'
-          class="w-full rounded-2xl overflow-hidden cursor-pointer"
-        />
-      </label>
+    ${preBackkgrounds}
     </div>
 
     <div id='gradient-tab' class="hidden">
