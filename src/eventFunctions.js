@@ -38,6 +38,14 @@ export const showCurrentObject = (show, hide) => {
   show.classList.remove("hidden");
   hide.classList.add("hidden");
 };
+
+export const showModal = (modal) => {
+  modal.classList.remove("hidden");
+};
+
+export const hideModal = (modal) => {
+  modal.classList.add("hidden");
+};
 // export const imageTab = (e, imagetab, texttab) => {
 //   imagetab.classList.remove("hidden");
 //   texttab.classList.add("hidden");
@@ -94,4 +102,17 @@ export const setBoxBlack = (reactor, text) => {
 
 export const setCustomBoxColor = (e, reactor) => {
   reactor.style.background = e.target.value;
+};
+
+export const setCustomBgColor1 = (reactor) => {
+  reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
+  reactor.classList.add("custom-background-1");
+};
+export const setCustomBgColor2 = (reactor) => {
+  reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
+  reactor.classList.add("custom-background-2");
+};
+export const setCustomBgColor3 = (reactor) => {
+  reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
+  reactor.classList.add("custom-background-3");
 };

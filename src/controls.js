@@ -25,12 +25,9 @@ const cropImageWidgets = `
   </div>
 `;
 
-export const controlWidgets = () => {
-  return `
-  <div class='flex flex-col text-black' id="labelControls">
-  <div> 
-  ${backgroundColorWidgets}
-  <label>
+const insetandoutsetWidget = `
+<div class='flex flex-col space-x-0 lg:space-x-2 lg:flex-row'>
+ <label>
       Inset:
       <input
         type="range"
@@ -49,6 +46,13 @@ export const controlWidgets = () => {
         />
       </label>
       </div>
+`;
+export const controlWidgets = () => {
+  return `
+  <div class='flex flex-col text-black' id="labelControls">
+  
+      ${backgroundColorWidgets}
+      ${insetandoutsetWidget}
       ${boxcolorWidgets}
       ${createWidgets}
       ${imageSizeWidgets}

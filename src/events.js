@@ -1,9 +1,10 @@
-export const addImageEvent = (triggerer, reactor) => {
+export const addImageEvent = (triggerer, reactor, modalimage) => {
   const updateImage = (e) => {
     if (!e.target.value) return;
     let image = new Image();
     image.src = URL.createObjectURL(e.target.files[0]);
     reactor.src = image.src;
+    modalimage.src = image.src;
   };
   triggerer.addEventListener("input", updateImage, false);
 };

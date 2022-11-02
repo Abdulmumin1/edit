@@ -27,6 +27,11 @@ import {
   setBoxGray,
   setBoxBlack,
   setCustomBoxColor,
+  showModal,
+  hideModal,
+  setCustomBgColor1,
+  setCustomBgColor2,
+  setCustomBgColor3,
 } from "./src/eventFunctions";
 import { controlWidgets } from "./src/controls";
 
@@ -86,11 +91,15 @@ const labelEventListeners = () => {
   let boxBlack = select("#box-black");
   let customBoxColor = select("#custom-box-color");
 
+  //preloaded background
+  let customBg1 = select("#cbg-1");
+  let customBg2 = select("#cbg-2");
+  let customBg3 = select("#cbg-3");
+
   inputListener(insetSlider, (e) => changePadding(e, box));
   inputListener(marginSlider, (e) => changeMargin(e, box));
   inputListener(imageBackground, (e) => changeBackground(e, outerbox));
   inputListener(textFontSlider, (e) => changeFont(e, text));
-  addImageEvent(selectImage, image);
 
   clickListener(textTabButton, (e) => {
     showTab(e, imageTabButton, textTab, imageTab);
@@ -147,6 +156,11 @@ const labelEventListeners = () => {
   clickListener(boxGray, (e) => setBoxGray(box, text));
   clickListener(boxBlack, (e) => setBoxBlack(box, text));
   inputListener(customBoxColor, (e) => setCustomBoxColor(e, box));
+
+  clickListener(customBg1, (e) => setCustomBgColor1(outerbox));
+  clickListener(customBg2, (e) => setCustomBgColor2(outerbox));
+  clickListener(customBg3, (e) => setCustomBgColor3(outerbox));
+
   solidBackgroundTabButton.click();
   imageTabButton.click();
 
@@ -156,6 +170,9 @@ const labelEventListeners = () => {
 const startupEvents = () => {
   // start event listeners
   labelEventListeners();
+  let selectImage = select("#add-image");
+  let image = select("#image");
+  addImageEvent(selectImage, image, select("#modal-image"));
   renderEvent(select("#download"), () =>
     getImage(
       select("#outer-box"),
