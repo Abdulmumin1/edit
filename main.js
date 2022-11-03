@@ -34,6 +34,7 @@ import {
   setCustomBgColor3,
 } from "./src/eventFunctions";
 import { controlWidgets } from "./src/controls";
+import { cropImageModal } from "./src/components/modal";
 
 const select = (e) => {
   return document.querySelector(e);
@@ -41,6 +42,7 @@ const select = (e) => {
 
 // add controls to screen
 select("#move").innerHTML = controlWidgets();
+select("#modal").innerHTML = cropImageModal;
 
 const labelEventListeners = () => {
   // box event listeners
@@ -95,6 +97,10 @@ const labelEventListeners = () => {
   let customBg1 = select("#cbg-1");
   let customBg2 = select("#cbg-2");
   let customBg3 = select("#cbg-3");
+
+  //modal
+  let cropAction = select("#crop-image-action");
+  let modal = select("#modal");
 
   inputListener(insetSlider, (e) => changePadding(e, box));
   inputListener(marginSlider, (e) => changeMargin(e, box));
@@ -161,6 +167,10 @@ const labelEventListeners = () => {
   clickListener(customBg2, (e) => setCustomBgColor2(outerbox));
   clickListener(customBg3, (e) => setCustomBgColor3(outerbox));
 
+  clickListener(cropAction, (e) => showModal(modal));
+  document.querySelectorAll(".close-modal").forEach((element) => {
+    clickListener(element, (e) => hideModal(modal));
+  });
   solidBackgroundTabButton.click();
   imageTabButton.click();
 

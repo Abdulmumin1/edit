@@ -1,9 +1,17 @@
-export const addImageEvent = (triggerer, reactor, modalimage) => {
+export const addImageEvent = (triggerer, canvas, modalimage) => {
   const updateImage = (e) => {
     if (!e.target.value) return;
     let image = new Image();
     image.src = URL.createObjectURL(e.target.files[0]);
-    reactor.src = image.src;
+    let ctx = canvas.getContext("2d");
+    image.addEventListener("load", function () {
+      //set the canvas size to the new width and height
+      canvas.width = image.width;
+      canvas.height = image.height;
+
+      //draw the image
+      ctx.drawImage(image, 0, 0);
+    });
     modalimage.src = image.src;
   };
   triggerer.addEventListener("input", updateImage, false);
