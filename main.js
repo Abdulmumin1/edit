@@ -1,4 +1,5 @@
 import "./style.css";
+import "./src/croppr.css";
 import {
   renderEvent,
   downloadEvent,
@@ -35,7 +36,9 @@ import {
 } from "./src/eventFunctions";
 import { controlWidgets } from "./src/controls";
 import { cropImageModal } from "./src/components/modal";
-
+import Croppr from "croppr";
+import { cropImage } from "./src/components/croppimage";
+import { getColor } from "./src/getColorFromImage";
 const select = (e) => {
   return document.querySelector(e);
 };
@@ -44,6 +47,26 @@ const select = (e) => {
 select("#move").innerHTML = controlWidgets();
 select("#modal").innerHTML = cropImageModal;
 
+var cropperdata = null;
+
+function createCropInstance(image) {
+  var croppr = new Croppr(image, {
+    onInitialize: (instance) => {
+      console.log(instance);
+    },
+    onCropStart: (data) => {
+      console.log("start", data);
+      cropperdata = data;
+    },
+    onCropEnd: (data) => {
+      cropperdata = data;
+    },
+    onCropMove: (data) => {
+      console.log("move", data);
+      cropperdata = data;
+    },
+  });
+}
 const labelEventListeners = () => {
   // box event listeners
   let box = select("#box");
@@ -101,6 +124,8 @@ const labelEventListeners = () => {
   //modal
   let cropAction = select("#crop-image-action");
   let modal = select("#modal");
+  let cropOk = select("#crop-ok");
+  let modalImage = select("#modal-image");
 
   inputListener(insetSlider, (e) => changePadding(e, box));
   inputListener(marginSlider, (e) => changeMargin(e, box));
@@ -167,13 +192,38 @@ const labelEventListeners = () => {
   clickListener(customBg2, (e) => setCustomBgColor2(outerbox));
   clickListener(customBg3, (e) => setCustomBgColor3(outerbox));
 
-  clickListener(cropAction, (e) => showModal(modal));
+  clickListener(cropAction, (e) => {
+    showModal(modal);
+    createCropInstance("#modal-image");
+  });
+
+  clickListener(cropOk, (e) => {
+    cropImage(
+      modalImage.src,
+      cropperdata.x,
+      cropperdata.y,
+      cropperdata.width,
+      cropperdata.height,
+      image
+    );
+    hideModal(modal);
+  });
   document.querySelectorAll(".close-modal").forEach((element) => {
     clickListener(element, (e) => hideModal(modal));
   });
+
+  // clickListener(image, (e) => getColor(e, image, box));
+  getColor(image, box);
   solidBackgroundTabButton.click();
   imageTabButton.click();
 
+  // cropImage(
+  //   image,
+  //   cropperdata.x,
+  //   cropperdata.y,
+  //   cropperdata.width,
+  //   cropperdata.height
+  // );
   // outerbox.style.height = `calc(${outerbox.style.width} * 9/16)`;
 };
 
@@ -182,7 +232,12 @@ const startupEvents = () => {
   labelEventListeners();
   let selectImage = select("#add-image");
   let image = select("#image");
-  addImageEvent(selectImage, image, select("#modal-image"));
+  addImageEvent(
+    selectImage,
+    image,
+    select("#modal-image"),
+    select("#box-black")
+  );
   renderEvent(select("#download"), () =>
     getImage(
       select("#outer-box"),

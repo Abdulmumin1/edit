@@ -1,5 +1,5 @@
 let cropperdata = null;
-function createCropInstance(image) {
+export function createCropInstance(image) {
   var croppr = new Croppr(image, {
     onInitialize: (instance) => {
       console.log(instance);
@@ -17,14 +17,21 @@ function createCropInstance(image) {
     },
   });
 }
-function cropImage(imagePath, newX, newY, newWidth, newHeight) {
+export function cropImage(
+  imagePath,
+  newX,
+  newY,
+  newWidth,
+  newHeight,
+  destination
+) {
   //create an image object from the path
 
   const originalImage = new Image();
   originalImage.src = imagePath;
 
   //initialize the canvas object
-  const canvas = document.getElementById("canvas");
+  let canvas = destination;
   const ctx = canvas.getContext("2d");
 
   //wait for the image to finish loading
