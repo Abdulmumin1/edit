@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "croppr": "^2.3.1",
-    "dom-to-image": "^2.6.0"
+    "dom-to-image": "^2.6.0",
+    "dominant-color": "^0.0.1"
   }
 }

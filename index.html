@@ -9,6 +9,7 @@
     <style id="u-style"></style>
   </head>
   <body class="h-screen">
+    <div id="modal" class="hidden"></div>
     <div class="h-full flex flex-col lg:flex-row bg-white">
       <div
         class="flex justify-center items-center lg:w-3/4 flex-1 flex-shrink-0 lg:flex-none"
@@ -32,11 +33,12 @@
               >
                 Your text Here
               </p>
-              <img
+              <!-- <img
                 src="./assets/exc.png"
                 class="mx-auto rounded-xl"
                 id="image"
-              />
+              /> -->
+              <canvas id="image" class="mx-auto rounded-xl w-full"></canvas>
             </div>
             <!-- </div> -->
           </div>

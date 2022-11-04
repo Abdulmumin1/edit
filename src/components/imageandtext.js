@@ -41,6 +41,7 @@ export const createWidgets = `
 
   <div class='w-full' id='image-tab-items'>
   ${dropZone}
+  <button class='bg-white shadow rounded p-1' id='crop-image-action'>Crop Image</button>
   </div>
 </div>
 `;
