@@ -88,6 +88,10 @@ export const setTextAlignRight = (reactor) => {
   reactor.style.textAlign = "right";
 };
 
+export const setTextColor = (e, reactor) => {
+  reactor.style.color = e.target.value;
+};
+
 export const setBoxWhite = (reactor, text) => {
   console.log("rejkfdkls");
   reactor.style.backgroundColor = "white";
