@@ -33,6 +33,7 @@ import {
   setCustomBgColor1,
   setCustomBgColor2,
   setCustomBgColor3,
+  setTextColor,
 } from "./src/eventFunctions";
 import { controlWidgets } from "./src/controls";
 import { cropImageModal } from "./src/components/modal";
@@ -105,12 +106,14 @@ const labelEventListeners = () => {
   let threebytwo = select("#threebytwo");
   let square = select("#square");
 
+  //text color
+  let textColorChange = select("#text-color-input");
   // text align widgets
   let alignLeft = select("#text-left");
   let alignCenter = select("#text-center");
   let alignRight = select("#text-right");
 
-  // text align widgets
+  // box background widgets
   let boxWhite = select("#box-white");
   let boxGray = select("#box-gray");
   let boxBlack = select("#box-black");
@@ -192,6 +195,7 @@ const labelEventListeners = () => {
   clickListener(customBg2, (e) => setCustomBgColor2(outerbox));
   clickListener(customBg3, (e) => setCustomBgColor3(outerbox));
 
+  inputListener(textColorChange, (e) => setTextColor(e, text));
   clickListener(cropAction, (e) => {
     showModal(modal, select("#event-playground"));
     createCropInstance(modalImage);

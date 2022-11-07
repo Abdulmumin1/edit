@@ -27,7 +27,8 @@ export const createWidgets = `
   </div>
 
   <div class='w-full hidden' id='text-tab-items'>
-    <label class='w-full' id='text-font'>
+  <div class='flex align-baseline space-x-1'>
+    <label class='w-3/4' id='text-font'>
         font:
         <input
           type="range"
@@ -36,6 +37,17 @@ export const createWidgets = `
           class="w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
         />
     </label>
+    <label class='w-1/4' id='text-font'>
+        *
+        <input
+          type="color"
+          id="text-color-input"
+          max="60"
+          class="w-full overflow-hidden bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+        />
+    </label>
+ 
+    </div>
     ${textAlignWidgets}
   </div>
 
