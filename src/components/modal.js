@@ -1,13 +1,8 @@
 export const cropImageModal = `
- <div
-        id="defaultModal"
-        tabindex="-1"
-        aria-hidden="true"
-        class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0  h-full"
-      >
-        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+ 
+        <div class="p-4 flex justify-center center-modal max-w-3xl items-center h-full">
           <!-- Modal content -->
-          <div class="relative bg-white rounded-lg shadow text-black">
+          <div class=" bg-slate-50 rounded-lg strong-shadow text-black h-fit max-h-full overflow-scroll">
             <!-- Modal header -->
             <div
               class="flex justify-between items-start p-4 rounded-t border-b "
@@ -37,9 +32,9 @@ export const cropImageModal = `
               </button>
             </div>
             <!-- Modal body -->
-            <div>
+            <div class='bg-orange-400' class='h-full' id='modal-body'>
           
-            <img scr="../../assets/exc.png" id='modal-image'/>
+            <img id='modal-image' class='h-full overflow-hidden'/>
             </div>
             <!-- Modal footer -->
             <div
@@ -63,4 +58,4 @@ export const cropImageModal = `
             </div>
           </div>
         </div>
-      </div>`;
+      `;
