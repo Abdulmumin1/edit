@@ -193,8 +193,8 @@ const labelEventListeners = () => {
   clickListener(customBg3, (e) => setCustomBgColor3(outerbox));
 
   clickListener(cropAction, (e) => {
-    showModal(modal);
-    createCropInstance("#modal-image");
+    showModal(modal, select("#event-playground"));
+    createCropInstance(modalImage);
   });
 
   clickListener(cropOk, (e) => {
@@ -206,10 +206,12 @@ const labelEventListeners = () => {
       cropperdata.height,
       image
     );
-    hideModal(modal);
+    hideModal(modal, select("#event-playground"));
   });
   document.querySelectorAll(".close-modal").forEach((element) => {
-    clickListener(element, (e) => hideModal(modal));
+    clickListener(element, (e) =>
+      hideModal(modal, select("#event-playground"))
+    );
   });
 
   // clickListener(image, (e) => getColor(e, image, box));
@@ -229,6 +231,7 @@ const labelEventListeners = () => {
 
 const startupEvents = () => {
   // start event listeners
+
   labelEventListeners();
   let selectImage = select("#add-image");
   let image = select("#image");
@@ -238,6 +241,7 @@ const startupEvents = () => {
     select("#modal-image"),
     select("#box-black")
   );
+  // dragEnterListener(select("#box"), image, select("#modal-image"));
   renderEvent(select("#download"), () =>
     getImage(
       select("#outer-box"),

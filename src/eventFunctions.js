@@ -39,12 +39,14 @@ export const showCurrentObject = (show, hide) => {
   hide.classList.add("hidden");
 };
 
-export const showModal = (modal) => {
-  modal.classList.remove("hidden");
+export const showModal = (modal, eventPlayground) => {
+  modal.classList.toggle("hidden");
+  eventPlayground.classList.toggle("hidden");
 };
 
-export const hideModal = (modal) => {
-  modal.classList.add("hidden");
+export const hideModal = (modal, eventPlayground) => {
+  modal.classList.toggle("hidden");
+  eventPlayground.classList.toggle("hidden");
 };
 // export const imageTab = (e, imagetab, texttab) => {
 //   imagetab.classList.remove("hidden");

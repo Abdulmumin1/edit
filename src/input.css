@@ -20,4 +20,13 @@
           background: rgb(139,247,194);
           background: linear-gradient(63deg, rgba(139,247,194,1) 24%, rgba(232,63,190,1) 51%, rgba(232,67,174,1) 70%, rgba(250,137,47,1) 82%); 
     }
+    .center-modal{
+        border:none;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        
+    }
+
 }

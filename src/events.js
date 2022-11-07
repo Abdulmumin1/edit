@@ -33,12 +33,24 @@ export const clickListener = (triggerer, func) => {
   triggerer.addEventListener("click", func, false);
 };
 
-export const dragEnterListener = (triggerer, reactor) => {
-  const accept = (e) => {
+export const dragEnterListener = (triggerer, canvas, modalimage) => {
+  const updateImage = (e) => {
+    if (!e.target.value) return;
     e.preventDefault();
     e.stopPropagation();
-    let data = e.datatransfer;
-    reactor.src = URL.createObjectURL(data.files[0]);
+
+    let image = new Image();
+    image.src = URL.createObjectURL(e.datatransfer.files[0]);
+    let ctx = canvas.getContext("2d");
+    image.addEventListener("load", function () {
+      //set the canvas size to the new width and height
+      canvas.width = image.width;
+      canvas.height = image.height;
+
+      //draw the image
+      ctx.drawImage(image, 0, 0);
+      modalimage.src = image.src;
+    });
+    triggerer.addEventListener("drop", updateImage, false);
   };
-  triggerer.addEventListener("drop", accept, false);
 };
