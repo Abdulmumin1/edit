@@ -210,6 +210,8 @@ const labelEventListeners = () => {
       cropperdata.height,
       image
     );
+
+    // createCropInstance(modalImage);
     hideModal(modal, select("#event-playground"));
   });
   document.querySelectorAll(".close-modal").forEach((element) => {
