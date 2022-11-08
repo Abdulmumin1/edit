@@ -10,7 +10,7 @@ import {
 } from "./src/events";
 
 import { getImage } from "./src/download";
-
+import { inject } from "@vercel/analytics";
 import {
   downloadImageToStorage,
   changePadding,
@@ -49,7 +49,7 @@ select("#move").innerHTML = controlWidgets();
 select("#modal").innerHTML = cropImageModal;
 
 var cropperdata = null;
-
+var cropperinstance = null;
 function createCropInstance(image) {
   var croppr = new Croppr(image, {
     onInitialize: (instance) => {
@@ -67,6 +67,7 @@ function createCropInstance(image) {
       cropperdata = data;
     },
   });
+  return croppr;
 }
 const labelEventListeners = () => {
   // box event listeners
@@ -198,7 +199,10 @@ const labelEventListeners = () => {
   inputListener(textColorChange, (e) => setTextColor(e, text));
   clickListener(cropAction, (e) => {
     showModal(modal, select("#event-playground"));
-    createCropInstance(modalImage);
+    if (cropperinstance != null) {
+      cropperinstance.destroy();
+    }
+    cropperinstance = createCropInstance(modalImage);
   });
 
   clickListener(cropOk, (e) => {
@@ -245,7 +249,8 @@ const startupEvents = () => {
     selectImage,
     image,
     select("#modal-image"),
-    select("#box-black")
+    select("#box-black"),
+    cropperinstance
   );
   // dragEnterListener(select("#box"), image, select("#modal-image"));
   renderEvent(select("#download"), () =>
@@ -262,4 +267,5 @@ const startupEvents = () => {
   );
 };
 
+inject();
 window.addEventListener("load", startupEvents, false);
