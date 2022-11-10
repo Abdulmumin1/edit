@@ -3,7 +3,8 @@ const preBackkgrounds = `
     <div class='custom-background-1 w-full shadow-xl p-2 rounded cursor-pointer ' id='cbg-1'></div>
     <div class='custom-background-2 w-full shadow-2xl p-2 rounded cursor-pointer' id='cbg-2'></div>
     <div class='custom-background-3 w-full shadow-xl p-2 rounded cursor-pointer' id='cbg-3'></div>
-      
+     <div class='bg-black  w-full shadow-xl p-2 rounded cursor-pointer custom-background-4' id='cbg-4'
+    ></div> 
         <input
           type="color"
           id='background'
