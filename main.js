@@ -34,6 +34,9 @@ import {
   setCustomBgColor2,
   setCustomBgColor3,
   setTextColor,
+  setCustomBgColor,
+  setCustomBgColor4,
+  setBoxBlurr,
 } from "./src/eventFunctions";
 import { controlWidgets } from "./src/controls";
 import { cropImageModal } from "./src/components/modal";
@@ -115,6 +118,7 @@ const labelEventListeners = () => {
   let alignRight = select("#text-right");
 
   // box background widgets
+  let boxBlurr = select("#box-blur");
   let boxWhite = select("#box-white");
   let boxGray = select("#box-gray");
   let boxBlack = select("#box-black");
@@ -124,7 +128,7 @@ const labelEventListeners = () => {
   let customBg1 = select("#cbg-1");
   let customBg2 = select("#cbg-2");
   let customBg3 = select("#cbg-3");
-
+  let customBg4 = select("#cbg-4");
   //modal
   let cropAction = select("#crop-image-action");
   let modal = select("#modal");
@@ -187,6 +191,7 @@ const labelEventListeners = () => {
   clickListener(alignCenter, (e) => setTextAlignCenter(text));
   clickListener(alignRight, (e) => setTextAlignRight(text));
 
+  clickListener(boxBlurr, (e) => setBoxBlurr(box));
   clickListener(boxWhite, (e) => setBoxWhite(box, text));
   clickListener(boxGray, (e) => setBoxGray(box, text));
   clickListener(boxBlack, (e) => setBoxBlack(box, text));
@@ -195,6 +200,7 @@ const labelEventListeners = () => {
   clickListener(customBg1, (e) => setCustomBgColor1(outerbox));
   clickListener(customBg2, (e) => setCustomBgColor2(outerbox));
   clickListener(customBg3, (e) => setCustomBgColor3(outerbox));
+  clickListener(customBg4, (e) => setCustomBgColor4(outerbox));
 
   inputListener(textColorChange, (e) => setTextColor(e, text));
   clickListener(cropAction, (e) => {
@@ -225,7 +231,8 @@ const labelEventListeners = () => {
   });
 
   // clickListener(image, (e) => getColor(e, image, box));
-  getColor(image, box);
+  // getColor(image, box);
+  clickListener(image, (e) => getColor(e, image, box));
   solidBackgroundTabButton.click();
   imageTabButton.click();
 

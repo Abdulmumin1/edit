@@ -23,7 +23,7 @@
       >
         <div class="w-full h-full flex items-center justify-center p-3 lg:p-6">
           <div
-            class="h-full w-full lg:w-max flex items-center justify-center custom-background-2"
+            class="h-full w-full lg:w-max flex items-center justify-center custom-background-1"
             id="outer-box"
             style="aspect-ratio: 3/2"
           >
@@ -31,6 +31,10 @@
             <div
               class="w-fit bg-white rounded-3xl p-10 strong-shadow h-fit max-w-full max-h-full overflow-hidden"
               id="box"
+              style="
+                backdrop-filter: blur(14px);
+                background-color: rgba(255, 255, 255, 0.271);
+              "
             >
               <p
                 class="hidden font-semibold rounded-lg leading-tight max-w-full max-h-full"
@@ -57,7 +61,7 @@
       <!-- Controls -->
       <div
         id="controls"
-        class="h-full bg-slate-100 overflow-scroll lg:w-1/4 md:flex-1 md:flex-shrink-0"
+        class="h-full bg-slate-100 overflow-scroll lg:w-1/4 md:flex-1 md:flex-shrink-0 text-sm"
       >
         <div class="bg-white p-9 m-3 lg:m-6 shadow-2xl h-fit lg:rounded-3xl">
           <div class="flex space-y-4 flex-col">

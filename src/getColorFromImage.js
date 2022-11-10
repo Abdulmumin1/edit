@@ -26,41 +26,39 @@ function getEventLocation(element, event) {
   };
 }
 
-export function getColor(element, destination) {
-  element.addEventListener(
-    "mousemove",
-    function (e) {
-      var eventLocation = getEventLocation(this, e);
-      var coord = "x=" + eventLocation.x + ", y=" + eventLocation.y;
+export function getColor(e, element, destination) {
+  // element.addEventListener(
+  //   "mousemove",
+  //   function (e) {
+  var eventLocation = getEventLocation(element, e);
+  var coord = "x=" + eventLocation.x + ", y=" + eventLocation.y;
 
-      // Get the data of the pixel according to the location generate by the getEventLocation function
-      var context = this.getContext("2d");
-      var pixelData = context.getImageData(
-        eventLocation.x,
-        eventLocation.y,
-        1,
-        1
-      ).data;
+  // Get the data of the pixel according to the location generate by the getEventLocation function
+  var context = element.getContext("2d");
+  var pixelData = context.getImageData(
+    eventLocation.x,
+    eventLocation.y,
+    1,
+    1
+  ).data;
 
-      // If transparency on the image
-      if (
-        pixelData[0] == 0 &&
-        pixelData[1] == 0 &&
-        pixelData[2] == 0 &&
-        pixelData[3] == 0
-      ) {
-        coord += " (Transparent color detected, cannot be converted to HEX)";
-      }
+  // If transparency on the image
+  if (
+    pixelData[0] == 0 &&
+    pixelData[1] == 0 &&
+    pixelData[2] == 0 &&
+    pixelData[3] == 0
+  ) {
+    coord += " (Transparent color detected, cannot be converted to HEX)";
+  }
 
-      var hex =
-        "#" +
-        ("000000" + rgbToHex(pixelData[0], pixelData[1], pixelData[2])).slice(
-          -6
-        );
+  var hex =
+    "#" +
+    ("000000" + rgbToHex(pixelData[0], pixelData[1], pixelData[2])).slice(-6);
 
-      // Draw the color and coordinates.
-      destination.style.backgroundColor = hex;
-    },
-    false
-  );
+  // Draw the color and coordinates.
+  destination.style.backgroundColor = hex;
+  //   },
+  //   false
+  // );
 }

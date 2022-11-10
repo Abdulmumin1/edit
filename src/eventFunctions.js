@@ -105,11 +105,18 @@ export const setBoxBlack = (reactor, text) => {
   reactor.style.backgroundColor = "black";
   text.style.color = "white";
 };
+export const setBoxBlurr = (reactor) => {
+  reactor.style =
+    "backdrop-filter: blur(14px); background-color: rgba(255, 255, 255, 0.222);";
+};
 
 export const setCustomBoxColor = (e, reactor) => {
   reactor.style.background = e.target.value;
 };
 
+export const setCustomBgColor = (e, target) => {
+  target.style.background = e.target.background;
+};
 export const setCustomBgColor1 = (reactor) => {
   reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
   reactor.classList.add("custom-background-1");
@@ -121,4 +128,8 @@ export const setCustomBgColor2 = (reactor) => {
 export const setCustomBgColor3 = (reactor) => {
   reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
   reactor.classList.add("custom-background-3");
+};
+export const setCustomBgColor4 = (reactor) => {
+  reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
+  reactor.classList.add("custom-background-4");
 };
