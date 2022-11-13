@@ -1,6 +1,25 @@
 const CACHE_NAME = "offline";
 const OFFLINE_URL = "index.html";
 
+const offlineFiles = [
+  "./",
+  "/style.css",
+  "/main.js",
+  "/src/controls.js",
+  "/src/download.js",
+  "/src/eventFunctions.js",
+  "/src/components",
+  "/src/components/boxcolorwidgets.js",
+  "/src/components/modal.js",
+  "/src/components/imageandtext.js",
+  "/src/components/imagesizewidget.js",
+  "/src/components/backgroundColor.js",
+  "/src/components/croppimage.js",
+  "/src/events.js",
+  "/src/croppr.css",
+  "/src/getColorFromImage.js",
+  "/src/input.css",
+];
 self.addEventListener("install", function (event) {
   console.log("[ServiceWorker] Install");
 
@@ -9,7 +28,7 @@ self.addEventListener("install", function (event) {
       const cache = await caches.open(CACHE_NAME);
       // Setting {cache: 'reload'} in the new request will ensure that the response
       // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
-      await cache.addAll(OFFLINE_URL, "/style.css", "/src", "/main.js");
+      await cache.addAll(offlineFiles);
     })()
   );
 
