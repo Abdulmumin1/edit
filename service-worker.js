@@ -9,7 +9,7 @@ self.addEventListener("install", function (event) {
       const cache = await caches.open(CACHE_NAME);
       // Setting {cache: 'reload'} in the new request will ensure that the response
       // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
-      await cache.add(new Request(OFFLINE_URL, { cache: "reload" }));
+      await cache.addAll(OFFLINE_URL, "/style.css", "/src", "/main.js");
     })()
   );
 
@@ -34,28 +34,34 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", function (event) {
   // console.log('[Service Worker] Fetch', event.request.url);
-  if (event.request.mode === "navigate") {
-    event.respondWith(
-      (async () => {
-        try {
-          const preloadResponse = await event.preloadResponse;
-          if (preloadResponse) {
-            return preloadResponse;
-          }
+  //   if (event.request.mode === "navigate") {
+  //     event.respondWith(
+  //       (async () => {
+  //         try {
+  //           const preloadResponse = await event.preloadResponse;
+  //           if (preloadResponse) {
+  //             return preloadResponse;
+  //           }
 
-          const networkResponse = await fetch(event.request);
-          return networkResponse;
-        } catch (error) {
-          console.log(
-            "[Service Worker] Fetch failed; returning offline page instead.",
-            error
-          );
+  //           const networkResponse = await fetch(event.request);
+  //           return networkResponse;
+  //         } catch (error) {
+  //           console.log(
+  //             "[Service Worker] Fetch failed; returning offline page instead.",
+  //             error
+  //           );
 
-          const cache = await caches.open(CACHE_NAME);
-          const cachedResponse = await cache.match(OFFLINE_URL);
-          return cachedResponse;
-        }
-      })()
-    );
-  }
+  //           const cache = await caches.open(CACHE_NAME);
+  //           const cachedResponse = await cache.match(OFFLINE_URL);
+  //           return cachedResponse;
+  //         }
+  //       })()
+  //     );
+  //   }
+
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
 });
