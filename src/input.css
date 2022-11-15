@@ -30,5 +30,10 @@
     .custom-background-4{
         background: linear-gradient(225deg, #ffdddd, #e2c3ff, #aafdff)
     }
+    
+    .hide-scroll::-webkit-scrollbar { 
+        width: 0 !important;
+        display: none;         
+    }
 
 }
