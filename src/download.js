@@ -16,7 +16,7 @@ export const getImage = (id, downloadArea, downloadCard, downloadLink) => {
     .then((dataUrl) => {
       let image = new Image();
       image.src = dataUrl;
-      image.classList = ["rounded-2xl h-full "];
+      image.classList = ["rounded-2xl h-full object-contain"];
       image.id = "download-image";
       downloadCard.insertBefore(image, downloadLink.parentElement);
       downloadArea.classList.remove("hidden");

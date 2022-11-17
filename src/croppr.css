@@ -8,16 +8,29 @@
   -moz-box-sizing: border-box;
 }
 
-.croppr-container img {
+.croppr-container  img{
   vertical-align: middle;
   max-width: 100%;
+  
+}
+.croppr-container {
+  height: 100%;
+
+  
 }
 
 .croppr {
   position: relative;
   display: inline-block;
+  
 }
 
+
+.croppr-image{
+  
+  max-height: 100%;
+  object-fit: contain;
+}
 .croppr-overlay {
   background: rgba(0,0,0,0.5);
   position: absolute;

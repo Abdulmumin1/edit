@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#000" />
     <title>Edit</title>
-    <link rel="manifest" href="manifest.json" />
+    <!-- <link rel="manifest" href="manifest.json" /> -->
     <script defer type="module" src="/main.js"></script>
   </head>
   <body class="h-screen relative hide-scroll">
     <div
       id="modal"
-      class="h-screen hidden flex items-center justify-center p-3 overflow-scroll"
+      class="h-screen hidden flex items-center justify-center p-3 flex-row"
     ></div>
     <div
       class="h-full flex flex-col lg:flex-row bg-white"
@@ -84,7 +84,7 @@
       <div
         class="absolute flex items-center justify-center flex-col right-0 bottom-0 px-4 py-14"
       >
-        <div class="bg-[#ffdd00] p-3 strong-shadow rounded-xl animate-pulse">
+        <div class="bg-[#ffdd00] p-3 strong-lg rounded-lg animate-pulse">
           <a
             class="decoration-[none] font-bold"
             href="https://www.buymeacoffee.com/abdulmumin6"
@@ -94,7 +94,7 @@
       </div>
 
       <div
-        class="flex flex-col items-center space-y-4 h-fit max-h-full"
+        class="flex flex-col items-center space-y-4 h-full max-h-full"
         id="download-card"
       >
         <button
@@ -105,7 +105,7 @@
         </button>
 
         <button
-          class="text-white p-3 w-fit rounded-xl shadow-lg bg-gray-800 cursor-pointer"
+          class="text-white p-3 mb-3 w-fit rounded-xl bg-gray-800 cursor-pointer"
           id="download-btn"
         >
           <a id="download-link">Download</a>
