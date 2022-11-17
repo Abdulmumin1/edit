@@ -30,7 +30,7 @@ let modaling = `
 
 `;
 let closemodalbtn = `
-<div class="flex items-center p-3 space-x-2 ">
+<div class="flex items-center p-3 space-x-2 fixed bottom-0 mb-2 z-30">
     <button
       data-modal-toggle="defaultModal"
       type="button"
