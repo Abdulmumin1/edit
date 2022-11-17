@@ -1,5 +1,5 @@
 let modalhead = `
-<div class="flex justify-between items-start p-4 rounded-t border-b">
+<div class="flex justify-between items-start p-4  border-b">
     <h3 class="text-xl font-semibold text-gray-900">Crop Image</h3>
     <button
       type="button"
@@ -25,7 +25,7 @@ let modalhead = `
 `;
 let modaling = `
   
-    <img id="modal-image" src="../../assets/exc.png" class="" />
+    <img id="modal-image" src="../../assets/exc.png" />
   
 
 `;
@@ -51,17 +51,21 @@ let closemodalbtn = `
 
 export const cropImageModal = `
 <!-- Modal content -->
+<div class='h-full'>
 <div
-  class="bg-slate-50 max-w-3xl rounded-lg strong-shadow text-black "
+class=" max-w-3xl text-black h-full"
 >
+
   <!-- Modal header -->
-  ${modalhead}
+  
 
   <!-- Modal body -->
-  ${modaling}
-
-  <!-- Modal footer -->
-  ${closemodalbtn}
   
+  ${modaling}
+  
+  <!-- Modal footer -->
+  
+  ${closemodalbtn}
+</div>
 </div>
       `;
