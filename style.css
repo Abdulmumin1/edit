@@ -563,6 +563,10 @@ video {
   border-width: 0;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -577,6 +581,10 @@ video {
 
 .bottom-0 {
   bottom: 0px;
+}
+
+.z-30 {
+  z-index: 30;
 }
 
 .m-3 {
