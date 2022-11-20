@@ -62,13 +62,13 @@ let tabContent = `
 
   <div class='w-full' id='code-tab-items'>
     <label for="code-language">Language:</label>
-<select id="code-language" name="cars">
+<select id="code-language" name="languages" class='p-2'>
   <option value="js">JavaScript</option>
   <option value="html">HTML</option>
   <option value="python">Python</option>
   <option value="css">CSS</option>
 </select>
-<button class='p-2 mt-2 rounded-md shadow' id='code-format'> Apply & Format </button>
+<button class='p-1 mt-2 rounded-md shadow' id='code-format'> Apply & Format </button>
   </div>
 `;
 export const createWidgets = `
@@ -79,7 +79,7 @@ export const createWidgets = `
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createcode'>Code</button>
   </div>
 
- <div class='h-full'>
+ <div class='w-full'>
  ${tabContent}
  </div>
 </div>
