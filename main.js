@@ -1,5 +1,6 @@
 import "./style.css";
 import "./src/croppr.css";
+import "./src/prism.css";
 import {
   renderEvent,
   downloadEvent,
@@ -43,6 +44,7 @@ import { cropImageModal } from "./src/components/modal";
 import Croppr from "croppr";
 import { cropImage } from "./src/components/croppimage";
 import { getColor } from "./src/getColorFromImage";
+import { getCodeHighlight } from "./src/code";
 const select = (e) => {
   return document.querySelector(e);
 };
@@ -53,6 +55,7 @@ select("#modal").innerHTML = cropImageModal;
 
 var cropperdata = null;
 var cropperinstance = null;
+
 function createCropInstance(image) {
   var croppr = new Croppr(image, {
     onInitialize: (instance) => {
@@ -88,9 +91,12 @@ const labelEventListeners = () => {
   let textFontSlider = select("#text-font");
   let dropZone = select("#dropzone");
   let text = select("#text");
+  let code = select("#code");
+  let codeTabButton = select("#createcode");
 
   let imageTab = select("#image-tab-items");
   let textTab = select("#text-tab-items");
+  let codeTab = select("#code-tab-items");
 
   // change background tab
   let gradientTabButton = select("#gradient");
@@ -141,20 +147,22 @@ const labelEventListeners = () => {
   inputListener(textFontSlider, (e) => changeFont(e, text));
 
   clickListener(textTabButton, (e) => {
-    showTab(e, imageTabButton, textTab, imageTab);
-    showCurrentObject(text, image);
+    showTab(e, textTab);
+    showCurrentObject(text);
+  });
+  clickListener(codeTabButton, (e) => {
+    showTab(e, codeTab);
+    code.innerHTML = getCodeHighlight(code.innerText);
+    showCurrentObject(code, select("#win-action"));
+    boxGray.click();
   });
   clickListener(imageTabButton, (e) => {
-    showTab(e, textTabButton, imageTab, textTab);
-    showCurrentObject(image, text);
+    showTab(e, imageTab);
+    showCurrentObject(image);
   });
 
-  clickListener(gradientTabButton, (e) =>
-    showTab(e, solidBackgroundTabButton, gradientTab, solidTab)
-  );
-  clickListener(solidBackgroundTabButton, (e) =>
-    showTab(e, gradientTabButton, solidTab, gradientTab)
-  );
+  clickListener(gradientTabButton, (e) => showTab(e, gradientTab));
+  clickListener(solidBackgroundTabButton, (e) => showTab(e, solidTab));
 
   inputListener(gradientColorOne, (e) =>
     createGradientBackground(
@@ -192,9 +200,9 @@ const labelEventListeners = () => {
   clickListener(alignRight, (e) => setTextAlignRight(text));
 
   clickListener(boxBlurr, (e) => setBoxBlurr(box));
-  clickListener(boxWhite, (e) => setBoxWhite(box, text));
-  clickListener(boxGray, (e) => setBoxGray(box, text));
-  clickListener(boxBlack, (e) => setBoxBlack(box, text));
+  clickListener(boxWhite, (e) => setBoxWhite(box, text, code));
+  clickListener(boxGray, (e) => setBoxGray(box, text, code));
+  clickListener(boxBlack, (e) => setBoxBlack(box, text, code));
   inputListener(customBoxColor, (e) => setCustomBoxColor(e, box));
 
   clickListener(customBg1, (e) => setCustomBgColor1(outerbox));
@@ -232,6 +240,19 @@ const labelEventListeners = () => {
 
   // clickListener(image, (e) => getColor(e, image, box));
   // getColor(image, box);
+
+  // inputListener(code, (e) => {
+  //   console.log("jkfdkslafjkdsajkf");
+  //   getCodeHighlight(e.target.value, select("#code-language"));
+  // });
+  clickListener(select("#code-format"), (e) => {
+    code.innerHTML = getCodeHighlight(code.innerText, select("#code-language"));
+  });
+  inputListener(select("#code-language"), (e) => {
+    // code.innerHTML = select("#code-language").value;
+    code.innerHTML = getCodeHighlight(code.innerText, select("#code-language"));
+  });
+
   clickListener(image, (e) => getColor(e, image, box));
   solidBackgroundTabButton.click();
   imageTabButton.click();

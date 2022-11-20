@@ -30,19 +30,35 @@
           >
             <!-- <div class="h-full w-full flex items-center justify-center"> -->
             <div
-              class="w-fit bg-white rounded-3xl p-10 strong-shadow h-fit max-w-full max-h-full overflow-hidden"
+              class="w-fit bg-white rounded-3xl p-10 strong-shadow h-fit max-w-full max-h-full overflow-hidden relative"
               id="box"
               style="
                 backdrop-filter: blur(14px);
                 background-color: rgba(255, 255, 255, 0.271);
               "
             >
+              <div
+                class="flex flex-row absolute top-0 left-0 mx-7 my-3 space-x-3"
+                id="win-action"
+              >
+                <div class="w-3 h-3 rounded-[50%] bg-red-600"></div>
+                <div class="w-3 h-3 rounded-[50%] bg-green-600"></div>
+                <div class="w-3 h-3 rounded-[50%] bg-orange-400"></div>
+              </div>
               <p
                 class="hidden font-semibold rounded-lg leading-tight max-w-full max-h-full"
                 id="text"
                 contenteditable="true"
               >
                 Your text Here
+              </p>
+              <p
+                class="hidden font-semibold rounded-lg leading-tight max-w-full max-h-full"
+                id="code"
+                contenteditable="true"
+                spellcheck="false"
+              >
+                console.log('Hello World')
               </p>
               <!-- <img
                 src="./assets/exc.png"
