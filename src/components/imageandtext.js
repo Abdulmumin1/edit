@@ -29,14 +29,8 @@ const textAlignWidgets = `
   </div>
 `;
 
-export const createWidgets = `
-<div class="flex items-center justify-center space-y-2 flex-col">
-  <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
-    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createimage'>Image</button>
-    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createtext'>Text</button>
-  </div>
-
-  <div class='w-full hidden' id='text-tab-items'>
+let tabContent = `
+ <div class='w-full hidden' id='text-tab-items'>
   <div class='flex align-baseline space-x-1'>
     <label class='w-3/4' id='text-font'>
         font:
@@ -65,5 +59,28 @@ export const createWidgets = `
   ${dropZone}
   <button class='bg-white shadow rounded p-1' id='crop-image-action'>Crop Image</button>
   </div>
+
+  <div class='w-full' id='code-tab-items'>
+    <label for="code-language">Language:</label>
+<select id="code-language" name="cars">
+  <option value="js">JavaScript</option>
+  <option value="html">HTML</option>
+  <option value="python">Python</option>
+  <option value="css">CSS</option>
+</select>
+<button class='p-2 mt-2 rounded-md shadow' id='code-format'> Apply & Format </button>
+  </div>
+`;
+export const createWidgets = `
+<div class="flex items-center justify-center space-y-2 flex-col">
+  <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createimage'>Image</button>
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createtext'>Text</button>
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createcode'>Code</button>
+  </div>
+
+ <div class='h-full'>
+ ${tabContent}
+ </div>
 </div>
 `;

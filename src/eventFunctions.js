@@ -23,20 +23,26 @@ export const createGradientBackground = (
   reactor.style.background = `linear-gradient(${angle.value}deg, ${colorone.value}, ${colortwo.value})`;
 };
 
-export const showTab = (e = undefined, other = undefined, show, hide) => {
+export const showTab = (e = undefined, show) => {
+  for (const child of e.target.parentElement.children) {
+    child.classList.remove("bg-white");
+    child.classList.remove("shadow-md");
+  }
   e.target.classList.add("bg-white");
   e.target.classList.add("shadow-md");
 
-  other.classList.remove("bg-white");
-  other.classList.remove("shadow-md");
-
+  for (const child of show.parentElement.children) {
+    child.classList.add("hidden");
+  }
   show.classList.remove("hidden");
-  hide.classList.add("hidden");
 };
 
-export const showCurrentObject = (show, hide) => {
+export const showCurrentObject = (show, add = null) => {
+  for (const child of show.parentElement.children) {
+    child.classList.add("hidden");
+  }
   show.classList.remove("hidden");
-  hide.classList.add("hidden");
+  add.classList.remove("hidden");
 };
 
 export const showModal = (modal, eventPlayground) => {
@@ -92,18 +98,21 @@ export const setTextColor = (e, reactor) => {
   reactor.style.color = e.target.value;
 };
 
-export const setBoxWhite = (reactor, text) => {
+export const setBoxWhite = (reactor, text, code) => {
   console.log("rejkfdkls");
   reactor.style.backgroundColor = "white";
   text.style.color = "black";
+  code.style.color = "black";
 };
-export const setBoxGray = (reactor, text) => {
+export const setBoxGray = (reactor, text, code) => {
   reactor.style.backgroundColor = "rgb(31,41,55)";
   text.style.color = "white";
+  code.style.color = "white";
 };
-export const setBoxBlack = (reactor, text) => {
+export const setBoxBlack = (reactor, text, code) => {
   reactor.style.backgroundColor = "black";
   text.style.color = "white";
+  code.style.color = "white";
 };
 export const setBoxBlurr = (reactor) => {
   reactor.style =

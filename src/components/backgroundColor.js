@@ -14,14 +14,8 @@ const preBackkgrounds = `
   </div>
 `;
 
-export const backgroundColorWidgets = `
-<div class='space-y-3'>
- <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
-    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='solid'>Solid</button>
-    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='gradient'>Gradient</button>
-  </div>
-  
-  <div id='solid-tab'>
+let tabContent = `
+<div id='solid-tab'>
     ${preBackkgrounds}
     </div>
 
@@ -48,5 +42,17 @@ export const backgroundColorWidgets = `
           class="w-full  cursor-pointer"
         />
     </div>
+`;
+
+export const backgroundColorWidgets = `
+<div class='space-y-3'>
+ <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='solid'>Solid</button>
+    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='gradient'>Gradient</button>
+  </div>
+  <div>
+  ${tabContent}
+  </div>
+  
 </div>
 `;
