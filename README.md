@@ -43,6 +43,14 @@ take and edit beautiful screenshot.
 
 </table>
 
+### Features
+
+> Beautiful ScreenShot
+
+> Text to Image
+
+> Code Snippet Image
+
 ### Contribution
 
 <ul>
