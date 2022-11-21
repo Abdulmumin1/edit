@@ -115,8 +115,7 @@ export const setBoxBlack = (reactor, text, code) => {
   code.style.color = "white";
 };
 export const setBoxBlurr = (reactor) => {
-  reactor.style =
-    "backdrop-filter: blur(14px); background-color: rgba(255, 255, 255, 0.222);";
+  reactor.style = `backdrop-filter: blur(14px); background-color: rgba(255, 255, 255, 0.222); `;
 };
 
 export const setCustomBoxColor = (e, reactor) => {
@@ -127,18 +126,26 @@ export const setCustomBgColor = (e, target) => {
   target.style.background = e.target.background;
 };
 export const setCustomBgColor1 = (reactor) => {
-  reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
-  reactor.classList.add("custom-background-1");
+  // reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
+  // reactor.classList.add("custom-background-1");
+  reactor.style.background =
+    "linear-gradient(30deg, #acc1e2, #8fecac, #f9fa6e)";
 };
 export const setCustomBgColor2 = (reactor) => {
-  reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
-  reactor.classList.add("custom-background-2");
+  // reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
+  // reactor.classList.add("custom-background-2");
+  reactor.style.background =
+    "linear-gradient(190deg, rgba(63,94,251,1) 0%,  rgba(166,191,199,1) 64%, rgba(255,61,113,1) 80%, rgba(254,8,58,1) 97%);";
 };
 export const setCustomBgColor3 = (reactor) => {
-  reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
-  reactor.classList.add("custom-background-3");
+  // reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
+  // reactor.classList.add("custom-background-3");
+  reactor.style.background =
+    "linear-gradient(30deg, #d5cff6, #f69bd6, #ffb75f)";
 };
 export const setCustomBgColor4 = (reactor) => {
-  reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
-  reactor.classList.add("custom-background-4");
+  // reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
+  // reactor.classList.add("custom-background-4");
+  reactor.style.background =
+    "linear-gradient(225deg, #ffdddd, #e2c3ff, #aafdff)";
 };
