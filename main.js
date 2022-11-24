@@ -285,7 +285,7 @@ const startupEvents = () => {
     getImage(
       select("#outer-box"),
       select("#download-area"),
-      select("#download-card"),
+      select("#download-image"),
       select("#download-link")
     )
   );
