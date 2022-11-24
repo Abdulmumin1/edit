@@ -4,7 +4,7 @@
 
 @layer utilities {
     .strong-shadow{
-        box-shadow: rgb(33, 33, 33) 1px 1px 10px 1px;
+        box-shadow: rgb(33, 33, 33) .5px .5px 2px .5px;
     }
 
     .custom-background-1{
