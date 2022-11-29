@@ -60,7 +60,7 @@ let tabContent = `
   <button class='bg-white shadow rounded p-1' id='crop-image-action'>Crop Image</button>
   </div>
 
-  <div class='w-full' id='code-tab-items'>
+  <div class='w-full hidden' id='code-tab-items'>
     <label for="code-language">Language:</label>
 <select id="code-language" name="languages" class='p-2'>
   <option value="js">JavaScript</option>
