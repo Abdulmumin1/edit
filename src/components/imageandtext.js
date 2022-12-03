@@ -42,12 +42,11 @@ let tabContent = `
         />
     </label>
     <label class='w-1/4' id='text-font'>
-        *
+        color
         <input
           type="color"
           id="text-color-input"
-          max="60"
-          class="w-full overflow-hidden bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+          class="w-full overflow-hidden bg-gray-800 range shadow-inner rounded cursor-pointer"
         />
     </label>
  

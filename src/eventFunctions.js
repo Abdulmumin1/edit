@@ -149,3 +149,9 @@ export const setCustomBgColor4 = (reactor) => {
   reactor.style.background =
     "linear-gradient(225deg, #ffdddd, #e2c3ff, #aafdff)";
 };
+
+export const addThumbnail = () => {
+  let el = `<p class="absolute bottom-0 right-0 m-5 text-gray-600">
+              Screenshot by Edit
+            </p>`;
+};
