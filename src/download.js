@@ -1,6 +1,6 @@
 import domtoimage from "dom-to-image";
 
-var scale = 2;
+var scale = 6;
 export const getImage = (id, downloadArea, image, downloadLink) => {
   domtoimage
     .toPng(id, {
