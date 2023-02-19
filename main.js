@@ -75,6 +75,24 @@ function createCropInstance(image) {
   });
   return croppr;
 }
+
+const codeTabFeature = (codeTabButton, code, boxGray) => {
+  let codeTab = select("#code-tab-items");
+  clickListener(codeTabButton, (e) => {
+    showTab(e, codeTab);
+    code.innerHTML = getCodeHighlight(code.innerText);
+    showCurrentObject(code, select("#win-action"));
+    boxGray.click();
+  });
+
+  clickListener(select("#code-format"), (e) => {
+    code.innerHTML = getCodeHighlight(code.innerText, select("#code-language"));
+  });
+  inputListener(select("#code-language"), (e) => {
+    // code.innerHTML = select("#code-language").value;
+    code.innerHTML = getCodeHighlight(code.innerText, select("#code-language"));
+  });
+};
 const labelEventListeners = () => {
   // box event listeners
   let box = select("#box");
@@ -96,7 +114,6 @@ const labelEventListeners = () => {
 
   let imageTab = select("#image-tab-items");
   let textTab = select("#text-tab-items");
-  let codeTab = select("#code-tab-items");
 
   // change background tab
   let gradientTabButton = select("#gradient");
@@ -150,12 +167,7 @@ const labelEventListeners = () => {
     showTab(e, textTab);
     showCurrentObject(text);
   });
-  clickListener(codeTabButton, (e) => {
-    showTab(e, codeTab);
-    code.innerHTML = getCodeHighlight(code.innerText);
-    showCurrentObject(code, select("#win-action"));
-    boxGray.click();
-  });
+
   clickListener(imageTabButton, (e) => {
     showTab(e, imageTab);
     showCurrentObject(image);
@@ -245,18 +257,12 @@ const labelEventListeners = () => {
   //   console.log("jkfdkslafjkdsajkf");
   //   getCodeHighlight(e.target.value, select("#code-language"));
   // });
-  clickListener(select("#code-format"), (e) => {
-    code.innerHTML = getCodeHighlight(code.innerText, select("#code-language"));
-  });
-  inputListener(select("#code-language"), (e) => {
-    // code.innerHTML = select("#code-language").value;
-    code.innerHTML = getCodeHighlight(code.innerText, select("#code-language"));
-  });
 
   clickListener(image, (e) => getColor(e, image, box));
   solidBackgroundTabButton.click();
   imageTabButton.click();
 
+  // codeTabFeature(codeTabButton, code, boxGray);
   // cropImage(
   //   image,
   //   cropperdata.x,

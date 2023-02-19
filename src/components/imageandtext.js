@@ -75,7 +75,7 @@ export const createWidgets = `
   <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createimage'>Image</button>
     <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createtext'>Text</button>
-    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createcode'>Code</button>
+    
   </div>
 
  <div class='w-full'>
@@ -83,3 +83,4 @@ export const createWidgets = `
  </div>
 </div>
 `;
+let deleted_code_tab = `<button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createcode'>Code</button>`;
