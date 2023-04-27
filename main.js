@@ -1,6 +1,7 @@
 import "./style.css";
 import "./src/croppr.css";
 import "./src/prism.css";
+// import { defaultimg } from "./public/exc.png";
 import {
   renderEvent,
   downloadEvent,
@@ -38,6 +39,7 @@ import {
   setCustomBgColor,
   setCustomBgColor4,
   setBoxBlurr,
+  shareImage,
 } from "./src/eventFunctions";
 import { controlWidgets } from "./src/controls";
 import { cropImageModal } from "./src/components/modal";
@@ -158,6 +160,9 @@ const labelEventListeners = () => {
   let cropOk = select("#crop-ok");
   let modalImage = select("#modal-image");
 
+  //share
+  let shareBtn = select("#share-image");
+
   inputListener(insetSlider, (e) => changePadding(e, box));
   inputListener(marginSlider, (e) => changeMargin(e, box));
   inputListener(imageBackground, (e) => changeBackground(e, outerbox));
@@ -271,7 +276,24 @@ const labelEventListeners = () => {
   //   cropperdata.height
   // );
   // outerbox.style.height = `calc(${outerbox.style.width} * 9/16)`;
+
+  clickListener(shareBtn, (e) => shareImage(select("#download-image")));
 };
+
+function statupimage(canvas, modalimage) {
+  let image = new Image();
+  image.src = "/exc.png";
+  let ctx = canvas.getContext("2d");
+  image.addEventListener("load", function () {
+    //set the canvas size to the new width and height
+    canvas.width = image.width;
+    canvas.height = image.height;
+
+    //draw the image
+    ctx.drawImage(image, 0, 0);
+  });
+  modalimage.src = image.src;
+}
 
 const startupEvents = () => {
   // start event listeners
@@ -286,6 +308,7 @@ const startupEvents = () => {
     select("#box-black"),
     cropperinstance
   );
+  statupimage(image, select("#modal-image"));
   // dragEnterListener(select("#box"), image, select("#modal-image"));
   renderEvent(select("#download"), () =>
     getImage(
