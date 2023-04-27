@@ -56,7 +56,7 @@ let tabContent = `
 
   <div class='w-full' id='image-tab-items'>
   ${dropZone}
-  <button class='bg-white shadow rounded p-1' id='crop-image-action'>Crop Image</button>
+  <button class='bg-white shadow rounded p-1 m-1' id='crop-image-action'>Crop Image</button>
   </div>
 
   <div class='w-full hidden' id='code-tab-items'>

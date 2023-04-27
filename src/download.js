@@ -20,7 +20,7 @@ export const getImage = (id, downloadArea, image, downloadLink) => {
       // image.id = "download-image";
       // downloadCard.insertBefore(image, downloadLink.parentElement);
       downloadArea.classList.remove("hidden");
-      window.location.href = "#download-area";
+      window.location.href = "#share-image";
 
       // get link ready for download
 

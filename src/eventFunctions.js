@@ -115,7 +115,7 @@ export const setBoxBlack = (reactor, text, code) => {
   code.style.color = "white";
 };
 export const setBoxBlurr = (reactor) => {
-  reactor.style = `backdrop-filter: blur(14px); background-color: rgba(255, 255, 255, 0.222); `;
+  reactor.style = `backdrop-filter: blur(50px); background-color: rgba(255, 255, 255, 0.222); `;
 };
 
 export const setCustomBoxColor = (e, reactor) => {
@@ -155,3 +155,18 @@ export const addThumbnail = () => {
               Screenshot by Edit
             </p>`;
 };
+
+export function shareImage(imageUrl) {
+  if (navigator.share) {
+    navigator
+      .share({
+        title: "editss",
+        text: "image",
+        files: [imageUrl],
+      })
+      .then(() => console.log("Image shared successfully."))
+      .catch((error) => console.error("Error sharing image:", error));
+  } else {
+    console.error("Web Share API not supported.");
+  }
+}
