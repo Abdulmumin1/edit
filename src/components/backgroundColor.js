@@ -39,7 +39,7 @@ let tabContent = `
           type="range"
           id='gradient-slider'
           max="360"
-          class="w-full  cursor-pointer"
+          class="w-full bg-gray-200 rounded-lg appearance-none cursor-pointer"
         />
     </div>
 `;
