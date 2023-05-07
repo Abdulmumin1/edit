@@ -1,11 +1,20 @@
 let svgCenter = `
-<svg style='width:16px; height=14px;' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32zm0 256c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32zM0 192c0 17.7 14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H32c-17.7 0-32 14.3-32 32zM448 448c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32z"/></svg>
+<svg  style="width:20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+</svg>
+
 `;
 let svgLeft = `
-<svg  style='width:16px; height=14px;' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M288 64c0 17.7-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32H256c17.7 0 32 14.3 32 32zm0 256c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c17.7 0 32 14.3 32 32zM0 192c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+<svg style="width:20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+</svg>
+
 `;
 let svgRight = `
-<svg  style='width:16px; height=14px;' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 64c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32zm0 256c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32zM0 192c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+<svg style="width:20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+</svg>
+
 `;
 
 const dropZone = `
@@ -22,7 +31,7 @@ const dropZone = `
 `;
 
 const textAlignWidgets = `
-  <div class='flex justify-between md:justify-around py-3'>
+  <div class='flex justify-end space-x-4 py-3'>
     <button class='bg-white shadow p-2 rounded border-dashed' id='text-left'>${svgLeft}</button>
     <button class='bg-white shadow p-2 rounded border-dashed' id='text-center'>${svgCenter}</button>
     <button class='bg-white shadow p-2 rounded border-dashed' id='text-right'>${svgRight}</button>
@@ -31,22 +40,22 @@ const textAlignWidgets = `
 
 let tabContent = `
  <div class='w-full hidden' id='text-tab-items'>
-  <div class='flex align-baseline space-x-1'>
-    <label class='w-3/4' id='text-font'>
-        font:
+  <div class='flex align-bottom space-x-1'>
+    <label class='w-full h-full' id='text-font'>
+        font
         <input
           type="range"
           id="font-slider"
           max="60"
-          class="w-full bg-gray-800 range shadow-inner rounded-3xl cursor-pointer"
+          class="w-full h-full bg-gray-200 rounded-lg appearance-none cursor-pointer"
         />
     </label>
-    <label class='w-1/4' id='text-font'>
+    <label class='w-1/4 h-full hidden' id='text-font'>
         color
         <input
           type="color"
           id="text-color-input"
-          class="w-full overflow-hidden bg-gray-800 range shadow-inner rounded cursor-pointer"
+          class="h-full shadow-inner rounded cursor-pointer"
         />
     </label>
  
