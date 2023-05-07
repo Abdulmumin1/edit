@@ -40,6 +40,7 @@ import {
   setCustomBgColor4,
   setBoxBlurr,
   shareImage,
+  addColor,
 } from "./src/eventFunctions";
 import { controlWidgets } from "./src/controls";
 import { cropImageModal } from "./src/components/modal";
@@ -125,8 +126,6 @@ const labelEventListeners = () => {
   let solidTab = select("#solid-tab");
 
   // gradient background widgets
-  let gradientColorOne = select("#gradient-one");
-  let gradientColorTwo = select("#gradient-two");
   let gradientColorSlider = select("#gradient-slider");
 
   // image size widgets
@@ -178,32 +177,13 @@ const labelEventListeners = () => {
     showCurrentObject(image);
   });
 
-  clickListener(gradientTabButton, (e) => showTab(e, gradientTab));
-  clickListener(solidBackgroundTabButton, (e) => showTab(e, solidTab));
-
-  inputListener(gradientColorOne, (e) =>
-    createGradientBackground(
-      outerbox,
-      gradientColorOne,
-      gradientColorTwo,
-      gradientColorSlider
-    )
-  );
-
-  inputListener(gradientColorTwo, (e) =>
-    createGradientBackground(
-      outerbox,
-      gradientColorOne,
-      gradientColorTwo,
-      gradientColorSlider
-    )
-  );
+  clickListener(gradientTabButton, (e) => showTab(null, gradientTab));
+  clickListener(solidBackgroundTabButton, (e) => showTab(null, solidTab));
 
   inputListener(gradientColorSlider, (e) =>
     createGradientBackground(
       outerbox,
-      gradientColorOne,
-      gradientColorTwo,
+      select("#gradient-colors"),
       gradientColorSlider
     )
   );
@@ -278,6 +258,18 @@ const labelEventListeners = () => {
   // outerbox.style.height = `calc(${outerbox.style.width} * 9/16)`;
 
   clickListener(shareBtn, (e) => shareImage(select("#download-image")));
+
+  let add_color = select("#add-color");
+  clickListener(add_color, (e) => addColor(select("#gradient-colors")));
+  document.querySelectorAll("#gradient-colors").forEach((colour) => {
+    inputListener(colour, (e) =>
+      createGradientBackground(
+        outerbox,
+        select("#gradient-colors"),
+        gradientColorSlider
+      )
+    );
+  });
 };
 
 function statupimage(canvas, modalimage) {
@@ -325,7 +317,7 @@ const startupEvents = () => {
 };
 
 inject();
-/* Only register a service worker if it's supported */
+/* Only register a service wappendChildorker if it's supported */
 // if ("serviceWorker" in navigator) {
 //   navigator.serviceWorker.register("/service-worker.js");
 // }

@@ -14,22 +14,24 @@ export const changeBackground = (e, reactor) => {
   reactor.style.background = `${e.target.value}`;
 };
 
-export const createGradientBackground = (
-  reactor,
-  colorone,
-  colortwo,
-  angle
-) => {
-  reactor.style.background = `linear-gradient(${angle.value}deg, ${colorone.value}, ${colortwo.value})`;
+export const createGradientBackground = (reactor, backgrounds, angle) => {
+  let colorInput = backgrounds.querySelectorAll('input[type="color"]');
+  let colors = Array.from(colorInput).map((input) => input.value);
+
+  reactor.style.background = `linear-gradient(${angle.value}deg, ${colors.join(
+    ", "
+  )})`;
 };
 
 export const showTab = (e = undefined, show) => {
-  for (const child of e.target.parentElement.children) {
-    child.classList.remove("bg-white");
-    child.classList.remove("shadow-md");
+  if (e) {
+    for (const child of e.target.parentElement.children) {
+      child.classList.remove("bg-white");
+      child.classList.remove("shadow-md");
+    }
+    e.target.classList.add("bg-white");
+    e.target.classList.add("shadow-md");
   }
-  e.target.classList.add("bg-white");
-  e.target.classList.add("shadow-md");
 
   for (const child of show.parentElement.children) {
     child.classList.add("hidden");
@@ -170,3 +172,12 @@ export function shareImage(imageUrl) {
     console.error("Web Share API not supported.");
   }
 }
+
+export const addColor = (body) => {
+  let color = document.createElement("input");
+  color.classList = [
+    "w-full h-full rounded-2xl overflow-hidden cursor-pointer",
+  ];
+  color.type = "color";
+  body.insertBefore(color, body.lastElementChild);
+};
