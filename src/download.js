@@ -1,7 +1,10 @@
 import domtoimage from "dom-to-image";
 
 var scale = 6;
-export const getImage = (id, downloadArea, image, downloadLink) => {
+export const getImage = (id, downloadArea, image, downloadLink, spinner, downloadBtn) => {
+  spinner.classList.remove('hidden')
+  spinner.classList.add('animate-spin')
+  downloadBtn.disable = true
   domtoimage
     .toPng(id, {
       width: id.clientWidth * scale,
@@ -26,5 +29,8 @@ export const getImage = (id, downloadArea, image, downloadLink) => {
 
       downloadLink.href = dataUrl;
       downloadLink.download = "image.png";
+      spinner.classList.remove('animate-spin')
+      spinner.classList.add('hidden')
+      downloadBtn.disable = false
     });
 };

@@ -307,7 +307,9 @@ const startupEvents = () => {
       select("#outer-box"),
       select("#download-area"),
       select("#download-image"),
-      select("#download-link")
+      select("#download-link"),
+      select('#spinner'),
+      select('#download')
     )
   );
 
