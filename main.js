@@ -310,12 +310,13 @@ const startupEvents = () => {
       select("#download-link"),
       select('#spinner'),
       select('#download')
-    )
-  );
+    ), 
 
-  downloadEvent(select("#download-btn"), () =>
-    downloadImageToStorage(select("#download-link"))
   );
+  
+  // downloadEvent(select("#download-btn"), () =>
+  //   downloadImageToStorage(select("#download-link"))
+  // );
 };
 
 inject();
