@@ -73,14 +73,31 @@ export const hideModal = (modal, eventPlayground) => {
 
 //image sizes
 
-export const setAspectRatio = (e, reactor) => {
+
+export const setAspectRatio = (e, reactor, r) => {
+  let i = r.checked
+
   if (e.target.innerText == "16:9") {
-    console.log("this is 3.3kl");
-    reactor.style.aspectRatio = "16/9";
+    if (i){
+      reactor.style.aspectRatio = "9/16";
+    }else{
+
+      reactor.style.aspectRatio = "16/9";
+    }
   } else if (e.target.innerText == "4:3") {
-    reactor.style.aspectRatio = "4/3";
+    if (i){
+      reactor.style.aspectRatio = "3/4";
+    }else{
+
+      reactor.style.aspectRatio = "4/3";
+    }
   } else if (e.target.innerText == "3:2") {
-    reactor.style.aspectRatio = "3/2";
+    if (i){
+      reactor.style.aspectRatio = "2/3";
+    }else{
+
+      reactor.style.aspectRatio = "3/2";
+    }
   } else if (e.target.innerText == "square") {
     reactor.style.aspectRatio = "2/2";
   }
