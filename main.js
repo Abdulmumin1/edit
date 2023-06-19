@@ -189,7 +189,7 @@ const labelEventListeners = () => {
   );
 
   [sixbynine, fourbythree, threebytwo, square].forEach((element) => {
-    clickListener(element, (e) => setAspectRatio(e, outerbox));
+    clickListener(element, (e) => setAspectRatio(e, outerbox, select('#rotate')));
   });
 
   clickListener(alignLeft, (e) => setTextAlignLeft(text));
