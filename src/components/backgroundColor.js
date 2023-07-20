@@ -70,7 +70,7 @@ let tabContent = `
 
 export const backgroundColorWidgets = `
 
-  <p class='bg-gray-100 p-1 rounded '>Backgrounds</p>
+  <p class='bg-gray-100 p-1 rounded hidden lg:block'>Backgrounds</p>
   <div>
   ${tabContent}
   </div>
