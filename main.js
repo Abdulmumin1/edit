@@ -174,7 +174,7 @@ const labelEventListeners = () => {
 
   clickListener(imageTabButton, (e) => {
     showTab(e, imageTab);
-    showCurrentObject(image);
+    // showCurrentObject(image);
   });
 
   clickListener(gradientTabButton, (e) => showTab(null, gradientTab));
@@ -189,7 +189,9 @@ const labelEventListeners = () => {
   );
 
   [sixbynine, fourbythree, threebytwo, square].forEach((element) => {
-    clickListener(element, (e) => setAspectRatio(e, outerbox, select('#rotate')));
+    clickListener(element, (e) =>
+      setAspectRatio(e, outerbox, select("#rotate"))
+    );
   });
 
   clickListener(alignLeft, (e) => setTextAlignLeft(text));
@@ -300,6 +302,15 @@ const startupEvents = () => {
     select("#box-black"),
     cropperinstance
   );
+
+  addImageEvent(
+    select("#dropzone2"),
+    image,
+    select("#modal-image"),
+    select("#box-black"),
+    cropperinstance
+  );
+
   statupimage(image, select("#modal-image"));
   // dragEnterListener(select("#box"), image, select("#modal-image"));
   renderEvent(select("#download"), () =>
@@ -308,12 +319,11 @@ const startupEvents = () => {
       select("#download-area"),
       select("#download-image"),
       select("#download-link"),
-      select('#spinner'),
-      select('#download')
-    ), 
-
+      select("#spinner"),
+      select("#download")
+    )
   );
-  
+
   // downloadEvent(select("#download-btn"), () =>
   //   downloadImageToStorage(select("#download-link"))
   // );

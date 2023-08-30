@@ -24,7 +24,7 @@
       >
         <div class="w-full h-full flex items-center justify-center p-3 lg:p-6">
           <div
-            class="h-fit max-h-[450px] lg:max-h-full w-fit flex items-center justify-center custom-background-2 relative m-3"
+            class="h-fit min-h-[30vh] max-h-[50vh] lg:max-h-full w-fit flex items-center justify-center custom-background-2 relative m-3"
             id="outer-box"
             style="aspect-ratio: 3/2"
           >
@@ -77,7 +77,7 @@
       <!-- Controls -->
       <div
         id="controls"
-        class="h-full bg-slate-100 overflow-auto lg:w-1/4 text-sm hide-scroll z-50"
+        class="relative h-full bg-slate-100 overflow-auto lg:w-1/4 text-sm hide-scroll z-50"
         style="z-index: 99999999999999999999999999999999999999999"
       >
         <div class="bg-white p-6 lg:p-9 m-0 lg:m-6 h-fit lg:rounded-3xl">
@@ -117,6 +117,27 @@
               >
             </p>
           </div>
+        </div>
+        <div class="fixed right-2 bottom-24 p-3 rounded-full bg-gray-700">
+          <label for="dropzone2">
+            <svg
+              aria-hidden="true"
+              class="w-6 h-6 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+              ></path>
+            </svg>
+
+            <input id="dropzone2" type="file" class="hidden" />
+          </label>
         </div>
       </div>
     </div>
