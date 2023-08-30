@@ -44,7 +44,9 @@ export const showCurrentObject = (show, add = null) => {
     child.classList.add("hidden");
   }
   show.classList.remove("hidden");
-  add.classList.remove("hidden");
+  if (add) {
+    add.classList.remove("hidden");
+  }
 };
 
 export const showModal = (modal, eventPlayground) => {
@@ -73,29 +75,25 @@ export const hideModal = (modal, eventPlayground) => {
 
 //image sizes
 
-
 export const setAspectRatio = (e, reactor, r) => {
-  let i = r.checked
+  let i = r.checked;
 
   if (e.target.innerText == "16:9") {
-    if (i){
+    if (i) {
       reactor.style.aspectRatio = "9/16";
-    }else{
-
+    } else {
       reactor.style.aspectRatio = "16/9";
     }
   } else if (e.target.innerText == "4:3") {
-    if (i){
+    if (i) {
       reactor.style.aspectRatio = "3/4";
-    }else{
-
+    } else {
       reactor.style.aspectRatio = "4/3";
     }
   } else if (e.target.innerText == "3:2") {
-    if (i){
+    if (i) {
       reactor.style.aspectRatio = "2/3";
-    }else{
-
+    } else {
       reactor.style.aspectRatio = "3/2";
     }
   } else if (e.target.innerText == "square") {
