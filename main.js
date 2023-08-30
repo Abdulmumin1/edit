@@ -174,7 +174,7 @@ const labelEventListeners = () => {
 
   clickListener(imageTabButton, (e) => {
     showTab(e, imageTab);
-    // showCurrentObject(image);
+    showCurrentObject(image);
   });
 
   clickListener(gradientTabButton, (e) => showTab(null, gradientTab));
