@@ -27,10 +27,10 @@ export const showTab = (e = undefined, show) => {
   if (e) {
     for (const child of e.target.parentElement.children) {
       child.classList.remove("bg-white");
-      child.classList.remove("shadow-md");
+      // child.classList.remove("shadow-md");
     }
     e.target.classList.add("bg-white");
-    e.target.classList.add("shadow-md");
+    // e.target.classList.add("shadow-md");
   }
 
   for (const child of show.parentElement.children) {
@@ -152,7 +152,7 @@ export const setCustomBgColor2 = (reactor) => {
   // reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);
   // reactor.classList.add("custom-background-2");
   reactor.style.background =
-    "linear-gradient(190deg, rgba(63,94,251,1) 0%,  rgba(166,191,199,1) 64%, rgba(255,61,113,1) 80%, rgba(254,8,58,1) 97%);";
+    "linear-gradient(190deg, rgba(63,94,251,1) 0%,  rgba(166,191,199,1) 64%, rgba(255,61,113,1) 80%, rgba(254,8,58,1) 97%)";
 };
 export const setCustomBgColor3 = (reactor) => {
   // reactor.classList.remove(reactor.classList[reactor.classList.length - 1]);

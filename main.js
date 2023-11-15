@@ -291,7 +291,7 @@ function statupimage(canvas, modalimage) {
 
 const startupEvents = () => {
   // start event listeners
-
+  box.style.margin = "20px";
   labelEventListeners();
   let selectImage = select("#add-image");
   let image = select("#image");
