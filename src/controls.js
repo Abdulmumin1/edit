@@ -32,7 +32,7 @@ const insetandoutsetWidget = `
       <input
         type="range"
         id="inset"
-        class="w-full bg-gray-200 rounded-lg appearance-none cursor-pointer range shadow-inner"
+        class="w-full bg-orange-100 p-[.13rem] rounded-lg appearance-none cursor-pointer range shadow-inner"
       />
     </label>
     
@@ -42,7 +42,7 @@ const insetandoutsetWidget = `
           type="range"
           id="margin"
           
-          class="w-full bg-gray-200 rounded-lg appearance-none cursor-pointer cursor-pointer"
+          class="w-full bg-orange-100 p-[.13rem] rounded-lg appearance-none shadow-inner cursor-pointer"
         />
       </label>
       </div>

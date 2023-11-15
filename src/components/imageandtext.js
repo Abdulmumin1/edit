@@ -18,8 +18,8 @@ let svgRight = `
 `;
 
 const dropZone = `
-<div class="hidden md:flex justify-center items-center w-full">
-    <label id='dropzone' for="add-image" class="flex flex-col justify-center items-center w-full h-32 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer  hover:bg-gray-100">
+<div class="hidden transition-all duration-300 active:scale-95 md:flex justify-center items-center w-full">
+    <label id='dropzone' for="add-image" class="flex flex-col justify-center items-center w-full h-32 bg-orange-50 rounded-lg border-2 border-orange-300 border-dashed cursor-pointer  hover:bg-orange-100">
         <div class="flex flex-col justify-center items-center pt-5 pb-6">
             <svg aria-hidden="true" class="mb-3 hidden lg:block w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
             <p class="mb-2 text-sm text-gray-500 mt-4 lg:mt-0 text-center"><span class="font-semibold">Click to upload</span> or drag and drop</p>
@@ -47,7 +47,7 @@ let tabContent = `
           type="range"
           id="font-slider"
           max="60"
-          class="w-full h-full bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          class="w-full h-full bg-orange-200 p-[.2rem] rounded-lg appearance-none cursor-pointer"
         />
     </label>
     <label class='w-1/4 h-full hidden' id='text-font'>
@@ -63,9 +63,9 @@ let tabContent = `
     ${textAlignWidgets}
   </div>
 
-  <div class='w-full' id='image-tab-items'>
+  <div class='w-full flex flex-col gap-2' id='image-tab-items'>
   ${dropZone}
-  <button class='bg-white shadow rounded p-1 m-1' id='crop-image-action'>Crop Image</button>
+  <button class='bg-orange-100  rounded-3xl p-2 m-1 w-full' id='crop-image-action'>Crop Image</button>
   </div>
 
   <div class='w-full hidden' id='code-tab-items'>
@@ -81,9 +81,9 @@ let tabContent = `
 `;
 export const createWidgets = `
 <div class="flex items-center justify-center space-y-2 flex-col">
-  <div class="inline-flex bg-gray-100 space-x-2 w-full p-1" role="group">
-    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createimage'>Image</button>
-    <button class='flex-1 hover:shadow-md p-1 hover:bg-white rounded-md' id='createtext'>Text</button>
+  <div class="inline-flex bg-orange-100 space-x-2 w-full p-1" role="group">
+    <button class='flex-1  p-1 hover:bg-white rounded-md' id='createimage'>Image</button>
+    <button class='flex-1  p-1 hover:bg-white rounded-md' id='createtext'>Text</button>
     
   </div>
 
