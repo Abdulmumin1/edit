@@ -23,14 +23,15 @@ let modalhead = `
     </button>
   </div>
 `;
-let modaling = `
-  
-    <img id="modal-image" src="../../assets/exc.png" />
-  
 
+let modaling = `
+<div class="h-full flex items-center justify-center">
+    <img id="modal-image" class="object-contain max-h-full max-w-full" style="width: 100%; height: 100%;" src="../../assets/exc.png" />
+</div>
 `;
+
 let closemodalbtn = `
-<div class="flex items-center p-3 space-x-2 fixed bottom-0 mb-2 z-30">
+<div class="flex items-center p-3 space-x-2 mb-2 z-30">
     <button
       data-modal-toggle="defaultModal"
       type="button"
@@ -52,20 +53,15 @@ let closemodalbtn = `
 export const cropImageModal = `
 <!-- Modal content -->
 <div class='h-full'>
-<div
-class=" max-w-3xl text-black h-full"
->
-
-  <!-- Modal header -->
-  
-
-  <!-- Modal body -->
-  
-  ${modaling}
-  
-  <!-- Modal footer -->
-  
-  ${closemodalbtn}
+    <div class="max-w-3xl flex justify-between flex-col text-black h-full">
+        <!-- Modal header -->
+        ${modalhead}
+        <!-- Modal body -->
+        <div class="w-full h-full">
+            ${modaling}
+        </div>
+        <!-- Modal footer -->
+        ${closemodalbtn}
+    </div>
 </div>
-</div>
-      `;
+`;

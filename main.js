@@ -46,7 +46,7 @@ import { controlWidgets } from "./src/controls";
 import { cropImageModal } from "./src/components/modal";
 import Croppr from "croppr";
 import { cropImage } from "./src/components/croppimage";
-import { getColor } from "./src/getColorFromImage";
+import { getColorFromCanvas } from "./src/getColorFromImage";
 import { getCodeHighlight } from "./src/code";
 const select = (e) => {
   return document.querySelector(e);
@@ -194,6 +194,10 @@ const labelEventListeners = () => {
     );
   });
 
+  clickListener(select("#rotate"), (e) => {
+    console.log("rotate");
+    setAspectRatio(e, outerbox, select("#rotate"));
+  });
   clickListener(alignLeft, (e) => setTextAlignLeft(text));
   clickListener(alignCenter, (e) => setTextAlignCenter(text));
   clickListener(alignRight, (e) => setTextAlignRight(text));
@@ -237,15 +241,16 @@ const labelEventListeners = () => {
     );
   });
 
-  // clickListener(image, (e) => getColor(e, image, box));
-  // getColor(image, box);
+  // clickListener(image, (e) => getColorFromCanvas(e, image, box));
+  // getColorFromCanvas(image, box);
 
   // inputListener(code, (e) => {
   //   console.log("jkfdkslafjkdsajkf");
   //   getCodeHighlight(e.target.value, select("#code-language"));
   // });
 
-  clickListener(image, (e) => getColor(e, image, box));
+  // clickListener(image, (e) => getColorFromCanvas(image, e, box));
+
   solidBackgroundTabButton.click();
   imageTabButton.click();
 
@@ -323,6 +328,10 @@ const startupEvents = () => {
       select("#download")
     )
   );
+
+  image.addEventListener("mousemove", (event) => {
+    getColorFromCanvas(image, event, box);
+  });
 
   // downloadEvent(select("#download-btn"), () =>
   //   downloadImageToStorage(select("#download-link"))

@@ -98,6 +98,12 @@ export const setAspectRatio = (e, reactor, r) => {
     }
   } else if (e.target.innerText == "square") {
     reactor.style.aspectRatio = "2/2";
+  } else {
+    if (i) {
+      reactor.style.aspectRatio = reverseString(reactor.style.aspectRatio);
+    } else {
+      reactor.style.aspectRatio = reverseString(reactor.style.aspectRatio);
+    }
   }
 };
 
@@ -196,3 +202,10 @@ export const addColor = (body) => {
   color.type = "color";
   body.insertBefore(color, body.lastElementChild);
 };
+
+function reverseString(str) {
+  let strArr = str.split("");
+  let reverseArr = strArr.reverse();
+
+  return reverseArr.join("");
+}
