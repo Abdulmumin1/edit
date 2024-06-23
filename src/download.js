@@ -1,6 +1,6 @@
 import domtoimage from "dom-to-image";
 
-var scale = 8;
+var scale = 2;
 export const getImage = (
   id,
   downloadArea,
